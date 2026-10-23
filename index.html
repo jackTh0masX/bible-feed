@@ -1,22 +1,82 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#101113"><meta name="description" content="A living Bible verse feed with story sagas, saved verses, and character conversations."><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Bible Feed"><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icons/icon-192.png" type="image/png"><link rel="apple-touch-icon" href="./icons/icon-192.png"><title>The Bible Feed 2.3</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#101113"><meta name="description" content="A living Bible verse feed with story sagas, saved verses, and character conversations."><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Bible Feed"><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icons/icon-192.png" type="image/png"><link rel="apple-touch-icon" href="./icons/icon-192.png"><title>The Bible Feed 2.4</title>
 <style>
-:root{color-scheme:dark;--bg:#101113;--card:#191a1e;--line:#34353c;--text:#f3f0e9;--muted:#aaa8a1;--gold:#d6b36a;--gold2:#f0d59a;--green:#8fbd9a;--red:#e46d70}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,sans-serif}body.compact .post{padding:10px;margin-bottom:8px}button,input{font:inherit}button{cursor:pointer}.app{max-width:740px;margin:auto;padding:0 16px 24px}.top{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:13px 0;background:#101113f2;backdrop-filter:blur(14px);border-bottom:1px solid #292a2e}.brand{display:flex;align-items:center;gap:10px}.mark{width:43px;height:43px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(145deg,#e3c681,#9e793a);color:#17140e;font-size:23px}.brand h1{font:700 24px Georgia,serif;margin:0}.eyebrow{font-size:10px;letter-spacing:1.3px;color:var(--muted)}.btn,.chip{border:1px solid var(--line);border-radius:999px;padding:9px 13px;color:var(--text);background:var(--card);font-size:13px}.chips{display:flex;gap:8px;overflow:auto;padding:14px 0;scrollbar-width:none}.chip{white-space:nowrap;background:transparent}.chip.active{background:#3a3020;border-color:#856a39;color:var(--gold2)}.daily{border:1px solid #4b3e27;border-radius:17px;padding:14px 16px;background:linear-gradient(120deg,#282218,#1b1b1d);margin-bottom:14px}.daily b{font-size:11px;letter-spacing:1.3px;color:var(--gold2)}.daily p{margin:5px 0 0;color:#d7d0c2;font-size:13px}.livebar{display:flex;align-items:center;gap:8px;border:1px solid #3b493d;background:#18201a;border-radius:13px;padding:10px 12px;margin-bottom:13px;font-size:12px;color:#c2d8c5}.dot{width:7px;height:7px;background:#79c58b;border-radius:50%;flex-shrink:0}.post{display:flex;gap:11px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:15px;margin-bottom:13px;animation:up .2s}.post.saga{border-color:#665432}.rail{width:3px;flex-shrink:0;border-radius:9px;background:linear-gradient(var(--gold),#655332);position:relative;margin:55px 0 0 3px}.rail:after{content:"";position:absolute;top:-7px;left:-4px;width:9px;height:9px;background:var(--gold);border-radius:50%}.body{min-width:0;flex:1}.head{display:flex;align-items:center;gap:10px}.avatar{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#302b22;border:1px solid #51432b;font-size:21px;flex-shrink:0}.author{font-weight:750}.role,.muted{font-size:12px;color:var(--muted)}.right{margin-left:auto;font-size:10px;color:var(--muted);text-align:right}.live{color:var(--green);font-weight:800}.meta{display:flex;justify-content:space-between;gap:8px;margin-top:14px;color:var(--gold2);font-size:12px;font-weight:750}.loc{font-size:11px;color:var(--muted);font-weight:500;text-align:right}.verse{font:22px/1.55 Georgia,serif;margin:12px 0}.context{font-size:13px;color:var(--muted)}.sagapill{display:inline-block;margin-top:9px;padding:4px 8px;border:1px solid #54452a;border-radius:999px;color:var(--gold2);font-size:10px}.tools{display:flex;gap:2px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:14px;padding-top:8px}.tool{border:0;background:transparent;color:var(--muted);padding:7px 8px;border-radius:9px;font-size:12px}.tool.liked{color:var(--red)}.tool.saved{color:var(--gold2)}.comments{border-top:1px solid var(--line);margin-top:8px;padding-top:9px}.comment{display:flex;gap:8px;margin:10px 0}.cavatar{width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:#25262b;flex-shrink:0}.cbody{font-size:13px}.cname{font-weight:750}.fiction{display:block;font-size:9px;letter-spacing:.6px;color:var(--gold);margin:1px 0}.inlineform{display:flex;gap:7px;margin-top:11px}.inlineform input{flex:1;min-width:0;background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:12px;padding:10px}.inlineform button{border:0;background:var(--gold);color:#201a0d;border-radius:12px;padding:8px 12px;font-weight:750}.typing{color:var(--gold2);font-size:12px;margin:8px 0 0 38px}.chapter{display:none;margin-top:12px;padding:12px;border-radius:12px;background:var(--bg);border:1px solid var(--line);font-size:13px}.chapter.open{display:block}.chapter p{margin:0 0 8px}.note{color:var(--muted);font-size:11px}.page{display:none}.page.active{display:block}.pagehead{padding:22px 0 14px}.pagehead h2{font:700 28px Georgia,serif;margin:0}.pagehead p{color:var(--muted);font-size:13px}.settings{padding:16px;background:var(--card);border:1px solid var(--line);border-radius:18px}.setting{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.setting small{display:block;color:var(--muted)}input[type=checkbox]{accent-color:var(--gold);width:19px;height:19px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:14px 0}.stat{text-align:center;background:var(--card);border:1px solid var(--line);border-radius:15px;padding:14px 6px}.stat strong{display:block;font-size:23px}.stat span{font-size:11px;color:var(--muted)}.bottom{position:sticky;bottom:0;z-index:4;display:flex;justify-content:space-around;background:#101113ed;border-top:1px solid var(--line);margin:20px -16px 0;padding:8px 5px calc(8px + env(safe-area-inset-bottom))}.nav{flex:1;border:0;border-radius:12px;background:transparent;color:var(--muted);font-size:11px;padding:6px}.nav span{display:block;font-size:20px}.nav.active{color:var(--gold2);background:#29241b}.end{text-align:center;color:var(--muted);padding:20px;font-size:12px}.hidden{display:none!important}.newbanner{position:sticky;top:68px;z-index:4;text-align:center;margin:6px 0 10px}.newbanner button{border:1px solid #7a6537;background:#332a19;color:var(--gold2);padding:9px 14px;border-radius:999px}.toast{position:fixed;bottom:82px;left:50%;transform:translateX(-50%);background:#eee5d3;color:#201b12;border-radius:999px;padding:10px 15px;z-index:20;display:none;font-size:13px;max-width:calc(100% - 28px)}@keyframes up{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}@media(min-width:600px){.app{padding:0 22px 24px}.bottom{margin-left:-22px;margin-right:-22px}}
+:root{color-scheme:dark;--bg:#101113;--card:#191a1e;--line:#34353c;--text:#f3f0e9;--muted:#aaa8a1;--gold:#d6b36a;--gold2:#f0d59a;--green:#8fbd9a;--red:#e46d70}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,sans-serif}body.compact .post{padding:10px;margin-bottom:8px}button,input,select{font:inherit}button{cursor:pointer}.app{max-width:740px;margin:auto;padding:0 16px 24px}.top{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:13px 0;background:#101113f2;backdrop-filter:blur(14px);border-bottom:1px solid #292a2e}.brand{display:flex;align-items:center;gap:10px}.mark{width:43px;height:43px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(145deg,#e3c681,#9e793a);color:#17140e;font-size:23px}.brand h1{font:700 24px Georgia,serif;margin:0}.eyebrow{font-size:10px;letter-spacing:1.3px;color:var(--muted)}.btn,.chip{border:1px solid var(--line);border-radius:999px;padding:9px 13px;color:var(--text);background:var(--card);font-size:13px}.chips{display:flex;gap:8px;overflow:auto;padding:14px 0;scrollbar-width:none}.chip{white-space:nowrap;background:transparent}.chip.active{background:#3a3020;border-color:#856a39;color:var(--gold2)}.daily{border:1px solid #4b3e27;border-radius:17px;padding:14px 16px;background:linear-gradient(120deg,#282218,#1b1b1d);margin-bottom:14px}.daily b{font-size:11px;letter-spacing:1.3px;color:var(--gold2)}.daily p{margin:5px 0 0;color:#d7d0c2;font-size:13px}.livebar{display:flex;align-items:center;gap:8px;border:1px solid #3b493d;background:#18201a;border-radius:13px;padding:10px 12px;margin-bottom:13px;font-size:12px;color:#c2d8c5}.dot{width:7px;height:7px;background:#79c58b;border-radius:50%;flex-shrink:0}.post{display:flex;gap:11px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:15px;margin-bottom:13px;animation:up .2s}.post.saga{border-color:#665432}.rail{width:3px;flex-shrink:0;border-radius:9px;background:linear-gradient(var(--gold),#655332);position:relative;margin:55px 0 0 3px}.rail:after{content:"";position:absolute;top:-7px;left:-4px;width:9px;height:9px;background:var(--gold);border-radius:50%}.body{min-width:0;flex:1}.head{display:flex;align-items:center;gap:10px}.avatar{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#302b22;border:1px solid #51432b;font-size:21px;flex-shrink:0}.author{font-weight:750}.role,.muted{font-size:12px;color:var(--muted)}.right{margin-left:auto;font-size:10px;color:var(--muted);text-align:right}.live{color:var(--green);font-weight:800}.meta{display:flex;justify-content:space-between;gap:8px;margin-top:14px;color:var(--gold2);font-size:12px;font-weight:750}.loc{font-size:11px;color:var(--muted);font-weight:500;text-align:right}.verse{font:22px/1.55 Georgia,serif;margin:12px 0}.context{font-size:13px;color:var(--muted)}.sagapill{display:inline-block;margin-top:9px;padding:4px 8px;border:1px solid #54452a;border-radius:999px;color:var(--gold2);font-size:10px;background:transparent}.tools{display:flex;gap:2px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:14px;padding-top:8px}.tool{border:0;background:transparent;color:var(--muted);padding:7px 8px;border-radius:9px;font-size:12px}.tool.liked{color:var(--red)}.tool.saved{color:var(--gold2)}.tool.trans-active{color:var(--gold2);background:#292318}.comments{border-top:1px solid var(--line);margin-top:8px;padding-top:9px}.comment{display:flex;gap:8px;margin:10px 0}.cavatar{width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:#25262b;flex-shrink:0}.cbody{font-size:13px}.cname{font-weight:750}.fiction{display:block;font-size:9px;letter-spacing:.6px;color:var(--gold);margin:1px 0}.inlineform{display:flex;gap:7px;margin-top:11px}.inlineform input{flex:1;min-width:0;background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:12px;padding:10px}.inlineform button{border:0;background:var(--gold);color:#201a0d;border-radius:12px;padding:8px 12px;font-weight:750}.typing{color:var(--gold2);font-size:12px;margin:8px 0 0 38px}.chapter{display:none;margin-top:12px;padding:12px;border-radius:12px;background:var(--bg);border:1px solid var(--line);font-size:13px}.chapter.open{display:block}.chapter p{margin:0 0 8px}.note{color:var(--muted);font-size:11px}.page{display:none}.page.active{display:block}.pagehead{padding:22px 0 14px}.pagehead h2{font:700 28px Georgia,serif;margin:0}.pagehead p{color:var(--muted);font-size:13px}.settings{padding:16px;background:var(--card);border:1px solid var(--line);border-radius:18px;margin-bottom:14px}.setting{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.setting:last-of-type{border-bottom:0}.setting small{display:block;color:var(--muted)}input[type=checkbox]{accent-color:var(--gold);width:19px;height:19px}select.select-ui{background:var(--bg);color:var(--gold2);border:1px solid var(--line);border-radius:10px;padding:6px 10px;font-size:13px}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin:14px 0}@media(min-width:480px){.stats{grid-template-columns:repeat(4,1fr)}}.stat{text-align:center;background:var(--card);border:1px solid var(--line);border-radius:15px;padding:14px 6px}.stat strong{display:block;font-size:22px;color:var(--gold2)}.stat span{font-size:11px;color:var(--muted)}.bottom{position:sticky;bottom:0;z-index:4;display:flex;justify-content:space-around;background:#101113ed;border-top:1px solid var(--line);margin:20px -16px 0;padding:8px 5px calc(8px + env(safe-area-inset-bottom))}.nav{flex:1;border:0;border-radius:12px;background:transparent;color:var(--muted);font-size:11px;padding:6px}.nav span{display:block;font-size:20px}.nav.active{color:var(--gold2);background:#29241b}.end{text-align:center;color:var(--muted);padding:20px;font-size:12px}.hidden{display:none!important}.newbanner{position:sticky;top:68px;z-index:4;text-align:center;margin:6px 0 10px}.newbanner button{border:1px solid #7a6537;background:#332a19;color:var(--gold2);padding:9px 14px;border-radius:999px}.toast{position:fixed;bottom:82px;left:50%;transform:translateX(-50%);background:#eee5d3;color:#201b12;border-radius:999px;padding:10px 15px;z-index:30;display:none;font-size:13px;max-width:calc(100% - 28px);box-shadow:0 6px 20px #0008}@keyframes up{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}@media(min-width:600px){.app{padding:0 22px 24px}.bottom{margin-left:-22px;margin-right:-22px}}
 
-/* 2.3 thread, handle, timestamp and interaction fixes */
+/* 2.3 & 2.4 thread, handle, profile modal, seen indicator & translation styles */
 .handle{font-size:11px;color:#9c9a93}.post.thread-linked{margin-bottom:0;border-radius:18px 18px 0 0;border-bottom-color:#4a402e}.post.thread-linked+.post.thread-linked{border-radius:0;border-top:0;padding-top:12px}.post.thread-linked.thread-last{border-radius:0 0 18px 18px;margin-bottom:13px;border-bottom:1px solid var(--line)}.post.thread-linked .rail{background:linear-gradient(var(--gold),#655332)}.post.thread-linked.thread-last .rail:before{content:"";position:absolute;top:0;bottom:0;left:0;width:3px;background:var(--card)}.post .comments.closed{display:none}.reply-toggle{color:var(--gold2)}.post .right .timestamp{display:block;margin-top:3px}.quote-canvas{display:none}.live-pending{font-weight:700}.newbanner button{box-shadow:0 4px 18px #0005}.tool:focus-visible,.chip:focus-visible,.btn:focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
+.profile-link{cursor:pointer;transition:color .15s}.profile-link:hover{color:var(--gold2);text-decoration:underline}.avatar.profile-link:hover,.cavatar.profile-link:hover{border-color:var(--gold2);transform:scale(1.04)}
+.seen-badge{display:inline-block;font-size:9px;color:#7d867e;margin-left:5px;letter-spacing:.5px}
+.btn-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.modal-backdrop{position:fixed;inset:0;background:#000b;backdrop-filter:blur(6px);z-index:25;display:none;align-items:flex-end;justify-content:center;padding:0}@media(min-width:600px){.modal-backdrop{align-items:center;padding:20px}}.modal-backdrop.open{display:flex}.modal{background:var(--bg);border:1px solid #4a3e28;border-radius:24px 24px 0 0;width:100%;max-width:680px;max-height:88vh;display:flex;flex-direction:column;overflow:hidden;animation:up .2s}@media(min-width:600px){.modal{border-radius:22px;max-height:82vh}}.modal-head{display:flex;align-items:center;gap:14px;padding:18px 20px;background:linear-gradient(135deg,#282115,#16171a);border-bottom:1px solid var(--line)}.modal-avatar{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#342d21;border:2px solid var(--gold);font-size:28px;flex-shrink:0}.modal-title{flex:1;min-width:0}.modal-title h3{margin:0;font:700 22px Georgia,serif;color:var(--text)}.modal-title .sub{font-size:12px;color:var(--gold2)}.modal-close{border:1px solid var(--line);background:var(--card);color:var(--text);width:36px;height:36px;border-radius:50%;font-size:16px}.modal-bio{padding:14px 20px;font-size:13px;color:#d7d0c2;border-bottom:1px solid var(--line);background:#151619}.modal-sagas{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.modal-tabs{display:flex;border-bottom:1px solid var(--line);background:var(--card)}.modal-tab{flex:1;padding:11px;border:0;background:transparent;color:var(--muted);font-size:13px;font-weight:650;border-bottom:2px solid transparent}.modal-tab.active{color:var(--gold2);border-bottom-color:var(--gold)}.modal-body{padding:16px;overflow-y:auto;flex:1}
 </style></head><body><main class="app">
-<header class="top"><div class="brand"><div class="mark">✝</div><div><h1>The Bible Feed</h1><div class="eyebrow">THE WORD · THE STORY · THE PEOPLE</div></div></div><button id="shuffle" class="btn">⤨ Shuffle</button></header>
-<section id="feedPage" class="page active"><nav class="chips"><button class="chip active" data-mode="For You">For You</button><button class="chip" data-mode="Story Mode">📜 Story Mode</button><button class="chip" data-mode="Jesus">✝ Jesus</button><button class="chip" data-mode="Psalms">🎵 Psalms</button><button class="chip" data-mode="Wisdom">✦ Wisdom</button><button class="chip" data-mode="Letters">✉️ Letters</button></nav>
+<header class="top"><div class="brand"><div class="mark">✝</div><div><h1>The Bible Feed</h1><div class="eyebrow">THE WORD · THE STORY · THE PEOPLE</div></div></div><div style="display:flex;gap:6px"><button id="peopleBtn" class="btn" title="Browse Biblical Figures">👥 People</button><button id="shuffle" class="btn">⤨ Shuffle</button></div></header>
+<section id="feedPage" class="page active"><nav class="chips"><button class="chip active" data-mode="For You">For You</button><button class="chip" data-mode="Unseen">✨ Unseen</button><button class="chip" data-mode="Story Mode">📜 Story Mode</button><button class="chip" data-mode="Jesus">✝ Jesus</button><button class="chip" data-mode="Psalms">🎵 Psalms</button><button class="chip" data-mode="Wisdom">✦ Wisdom</button><button class="chip" data-mode="Letters">✉️ Letters</button></nav>
 <div class="daily"><b>✦ SCRIPTURE, UNFOLDING</b><p id="description">A living feed of Scripture, connected stories, and reflections.</p></div><div class="livebar"><span class="dot"></span><span><b>STORY WATCH</b> · <span id="liveStatus">Following the unfolding story</span></span><span style="margin-left:auto" id="clock"></span><button class="btn" id="installApp" type="button" hidden aria-label="Install The Bible Feed">Install app</button></div>
 <div id="newbanner" class="newbanner hidden"><button id="showNew">↑ New saga update</button></div><div id="feed"></div><div id="sentinel" style="height:20px"></div><div id="end" class="end hidden">A new turn of the story is coming. Keep scrolling.</div></section>
 <section id="savedPage" class="page"><div class="pagehead"><h2>Saved verses</h2><p>Passages you want to return to.</p></div><div id="saved"></div></section>
-<section id="journeyPage" class="page"><div class="pagehead"><h2>Your journey</h2><p>Your personal trail through the Word.</p></div><div class="stats"><div class="stat"><strong id="nlikes">0</strong><span>Likes</span></div><div class="stat"><strong id="ncomments">0</strong><span>Your comments</span></div><div class="stat"><strong id="nshares">0</strong><span>Shares</span></div></div><div class="settings"><b>About character commentary</b><p class="muted">Character replies are imaginative, clearly labeled commentary—not quotations from Scripture.</p><button class="btn" id="export">Export activity JSON</button></div></section>
-<section id="settingsPage" class="page"><div class="pagehead"><h2>Settings</h2><p>Shape your reading experience.</p></div><div class="settings"><label class="setting"><span><b>Character commentary</b><small>Show imagined character reactions.</small></span><input id="characters" type="checkbox" checked></label><label class="setting"><span><b>Story posts first</b><small>Keep story chains together in For You.</small></span><input id="storyFirst" type="checkbox"></label><label class="setting"><span><b>Live saga simulator</b><small>Simulate incoming story updates while you read.</small></span><input id="liveSaga" type="checkbox" checked></label><label class="setting"><span><b>Compact posts</b><small>Use tighter card spacing.</small></span><input id="compact" type="checkbox"></label><p class="note">Live saga updates are simulated locally, not broadcast from other users. Read Context attempts to fetch chapter text from a public API.</p><button class="btn" id="clear">Clear local data</button></div></section>
-<nav class="bottom"><button class="nav active" data-page="feedPage"><span>⌂</span>Feed</button><button class="nav" data-page="savedPage"><span>♧</span>Saved</button><button class="nav" data-page="journeyPage"><span>♡</span>Journey</button><button class="nav" data-page="settingsPage"><span>⚙</span>Settings</button></nav></main><div id="toast" class="toast" role="status" aria-live="polite"></div>
+<section id="journeyPage" class="page"><div class="pagehead"><h2>Your journey</h2><p>Your personal trail through the Word.</p></div><div class="stats"><div class="stat"><strong id="nseen">0 / 0</strong><span>Verses Seen</span></div><div class="stat"><strong id="nlikes">0</strong><span>Likes</span></div><div class="stat"><strong id="ncomments">0</strong><span>Your comments</span></div><div class="stat"><strong id="nshares">0</strong><span>Shares</span></div></div><div class="settings"><b>Seen verses &amp; fresh content</b><p class="muted">The feed prioritizes verses you haven’t seen yet and automatically fetches new passages from Scripture. Reset your seen counter any time to cycle through all verses from the beginning.</p><div class="btn-row"><button class="btn" id="resetSeen">↺ Reset seen counter</button></div></div><div class="settings"><b>Backup &amp; character commentary</b><p class="muted">Character replies are imaginative, clearly labeled commentary from historical figures—never attributed to Jesus, and never replacing Scripture.</p><div class="btn-row"><button class="btn" id="export">Export activity JSON</button><button class="btn" id="importBtn">Import activity JSON</button><input type="file" id="importFile" accept="application/json" class="hidden"></div></div></section>
+<section id="settingsPage" class="page"><div class="pagehead"><h2>Settings</h2><p>Shape your reading experience.</p></div><div class="settings"><label class="setting"><span><b>Default Bible translation</b><small>Used when translating posts or loading new passages (tap 🌐 on any post to switch on the fly).</small></span><select id="defaultTrans" class="select-ui"><option value="asv">ASV (American Standard)</option><option value="kjv">KJV (King James)</option><option value="web">WEB (World English)</option><option value="bbe">BBE (Basic English)</option></select></label><label class="setting"><span><b>Prioritize unseen verses</b><small>Always show unread Scripture passages before repeating seen ones.</small></span><input id="unseenFirst" type="checkbox" checked></label><label class="setting"><span><b>Character commentary</b><small>Show imagined reactions from biblical witnesses (never Jesus).</small></span><input id="characters" type="checkbox" checked></label><label class="setting"><span><b>Story posts first</b><small>Keep story chains together in For You.</small></span><input id="storyFirst" type="checkbox"></label><label class="setting"><span><b>Live saga simulator</b><small>Simulate incoming story updates while you read.</small></span><input id="liveSaga" type="checkbox" checked></label><label class="setting"><span><b>Compact posts</b><small>Use tighter card spacing.</small></span><input id="compact" type="checkbox"></label><p class="note">Live saga updates are simulated locally. Translation and Read Context fetch live text from bible-api.com and cache it for offline reading.</p><div class="btn-row"><button class="btn" id="resetSeenSettings">↺ Reset seen verses</button><button class="btn" id="clear">Clear all local data</button></div></div></section>
+<nav class="bottom"><button class="nav active" data-page="feedPage"><span>⌂</span>Feed</button><button class="nav" data-page="savedPage"><span>♧</span>Saved</button><button class="nav" data-page="journeyPage"><span>♡</span>Journey</button><button class="nav" data-page="settingsPage"><span>⚙</span>Settings</button></nav></main>
+
+<div id="profileModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="profName">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-avatar" id="profAvatar">📜</div>
+      <div class="modal-title">
+        <h3 id="profName">Character</h3>
+        <div class="sub" id="profRole">Role · @handle</div>
+      </div>
+      <button class="modal-close" id="closeProfile" aria-label="Close profile">✕</button>
+    </div>
+    <div class="modal-bio">
+      <div id="profBio">Biography</div>
+      <div class="modal-sagas" id="profSagas"></div>
+    </div>
+    <div class="modal-tabs" id="profTabs">
+      <button class="modal-tab active" data-ptab="posts">Scripture Posts</button>
+      <button class="modal-tab" data-ptab="comments">Reflections &amp; Replies</button>
+      <button class="modal-tab" data-ptab="directory">All Figures</button>
+    </div>
+    <div class="modal-body" id="profBody"></div>
+  </div>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
 <script>
 (()=>{
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],KEY='bibleFeed2.v1',esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const TRANS_LIST=['asv','kjv','web','bbe'],TRANS_LABELS={asv:'ASV',kjv:'KJV',web:'WEB',bbe:'BBE'};
+
+const profiles={
+  'Jesus':{avatar:'✝️',handle:'@Jesus',role:'The Messiah · Son of God',bio:'The central figure of the Gospels—teaching the Kingdom of God, performing miracles of compassion, laying down His life on the cross, and rising again. In The Bible Feed, His posts are exclusively verbatim Scripture, never imagined commentary.'},
+  'David':{avatar:'👑',handle:'@KingDavid',role:'Shepherd, Psalmist & King of Israel',bio:'From the pastures of Bethlehem and the Valley of Elah to the throne in Jerusalem, David poured out his heart to God in songs of triumph, lament, and repentance.'},
+  'Moses':{avatar:'📜',handle:'@Moses',role:'Prophet & Lawgiver · Deliverer of Israel',bio:'Called at the burning bush to lead Israel out of Egyptian bondage, through the parted waters of the Red Sea, and to the covenant at Mount Sinai.'},
+  'Paul':{avatar:'✉️',handle:'@Paul_Apostle',role:'Apostle to the Nations',bio:'Once a zealous persecutor of the church, transformed on the Damascus road to become a tireless missionary and author of epistles on grace, faith, and perseverance.'},
+  'Peter':{avatar:'🐟',handle:'@Peter',role:'Fisherman of Galilee · Apostle',bio:'A bold, outspoken disciple who walked on water, stumbled in fear, was restored by the risen Christ, and preached boldly at Pentecost.'},
+  'John':{avatar:'🕊️',handle:'@John',role:'The Beloved Disciple · Gospel Writer',bio:'Fisherman of Galilee and close witness to Jesus’s ministry, death, and resurrection, writing deeply of divine love, light, and eternal life.'},
+  'Luke':{avatar:'📖',handle:'@Luke',role:'Physician, Historian & Gospel Writer',bio:'Careful investigator of eyewitness accounts of Jesus’s life and the explosive spread of the early church in the Book of Acts.'},
+  'Solomon':{avatar:'👑',handle:'@Solomon',role:'King of Israel · Collector of Wisdom',bio:'Son of David renowned for asking God for a discerning heart and compiling proverbs on wisdom, humility, and the fear of the Lord.'},
+  'Isaiah':{avatar:'🔥',handle:'@Isaiah',role:'Prophet in Jerusalem',bio:'Prophet of holiness, comfort, and the coming Messiah, calling a weary nation to wait upon the Lord.'},
+  'Miriam':{avatar:'🎶',handle:'@Miriam_Prophetess',role:'Prophetess of Israel',bio:'Sister of Moses and Aaron who watched over Moses at the Nile and led the women of Israel in tambourine and song at the Red Sea.'},
+  'Joshua':{avatar:'⚔️',handle:'@Joshua',role:'Commander & Successor to Moses',bio:'Faithful spy and leader who guided Israel across the Jordan into the Promised Land with the charge to be strong and courageous.'},
+  'Aaron':{avatar:'🕯️',handle:'@Aaron',role:'First High Priest of Israel',bio:'Older brother of Moses who stood beside him before Pharaoh and served at the tabernacle.'},
+  'Noah':{avatar:'🪵',handle:'@Noah',role:'Preacher of Righteousness · Builder of the Ark',bio:'Walked faithfully with God in a violent age, building the ark in obedience and witnessing God’s covenant rainbow after the flood.'},
+  'Martha':{avatar:'🌿',handle:'@Martha',role:'Disciple in Bethany',bio:'Sister of Mary and Lazarus who welcomed Jesus into her home and confessed her faith in Him as the Christ and Resurrection outside Lazarus’s tomb.'},
+  'Jonathan':{avatar:'🏹',handle:'@Jonathan',role:'Prince of Israel · Loyal Friend of David',bio:'Son of King Saul whose courageous faith and covenant friendship with David modeled selfless loyalty.'},
+  'Saul':{avatar:'🛡️',handle:'@Saul',role:'First King of Israel',bio:'Anointed as Israel’s first king, witnessing David’s rise in the Valley of Elah.'},
+  'Eliab':{avatar:'🪨',handle:'@Eliab',role:'Eldest Brother of David',bio:'Soldier in Saul’s army in the Valley of Elah when young David arrived at the battlefront.'},
+  'Job':{avatar:'🌩️',handle:'@Job',role:'Man of Uz · Enduring Sufferer',bio:'Tested by profound loss and sorrow, wrestling honestly with grief while clinging to the hope that his Redeemer lives.'},
+  'Habakkuk':{avatar:'🌾',handle:'@Habakkuk',role:'Prophet of Judah',bio:'Brought raw questions to God in troubled times and concluded with a song of unshakeable joy.'},
+  'Sons of Korah':{avatar:'🎵',handle:'@SonsOfKorah',role:'Temple Musicians & Psalmists',bio:'Levitical singers who composed beloved psalms of refuge, longing for God’s presence, and trust amid upheaval.'},
+  'Micah':{avatar:'🌿',handle:'@Micah',role:'Prophet of Moresheth',bio:'Spoke for the humble and called God’s people to justice, kindness, and walking humbly with the Lord.'},
+  'Jeremiah':{avatar:'🕯️',handle:'@Jeremiah',role:'The Weeping Prophet',bio:'Proclaimed God’s word through the fall of Jerusalem, testifying that the Lord’s compassions are new every morning.'},
+  'Psalmist':{avatar:'🎵',handle:'@Psalmist',role:'Poet of Israel’s Worship',bio:'Anonymous voice of devotion celebrating God’s Word as a lamp to our feet and a light to our path.'},
+  'Samuel':{avatar:'📜',handle:'@Samuel',role:'Prophet & Judge of Israel',bio:'Dedicated to the Lord from childhood at Shiloh, anointing both Saul and David and guiding Israel in prayer.'},
+  'Matthew':{avatar:'📖',handle:'@Matthew',role:'Former Tax Collector · Apostle & Evangelist',bio:'Called from his tax booth to follow Jesus, recording the Sermon on the Mount and the fulfillment of prophecy.'},
+  'The Father':{avatar:'❤️',handle:'@ProdigalFather',role:'Parable Figure · Luke 15',bio:'Portrayed in Jesus’s parable of the lost son as running with compassion to embrace a child returning home.'}
+};
+
 const seed=[
 ['ps23','David','👑','Psalm 23:1–3','Jehovah is my shepherd; I shall not want. He maketh me to lie down in green pastures; He leadeth me beside still waters. He restoreth my soul.','A song of trust from the shepherd who became king.','Psalms'],
 ['matt514','Jesus','✝️','Matthew 5:14–16','Ye are the light of the world. A city set on a hill cannot be hid.','The Sermon on the Mount · The Kingdom is near.','Jesus'],
@@ -48,6 +108,7 @@ const events=[
 {key:'lazarus',id:'live-lazarus',saga:'lazarus',step:2,author:'Jesus',avatar:'✝️',ref:'John 11:40',verse:'Said I not unto thee, that, if thou believedst, thou shouldest see the glory of God?',context:'Jesus speaks to Martha before the stone is rolled away.',place:'Bethany · At the tomb',cat:'Story',role:'The Teacher · Story update'},
 {key:'pentecost',id:'live-pentecost',saga:'pentecost',step:2,author:'Luke',avatar:'📖',ref:'Acts 2:6',verse:'And when this sound was heard, the multitude came together, and were confounded, because that every man heard them speaking in his own language.',context:'The crowd gathers as the disciples speak in many languages.',place:'Jerusalem · The crowd gathers',cat:'Story',role:'Historian · Story update'}
 ];
+
 const extras=[
 {id:'ps4610',author:'Sons of Korah',avatar:'🎵',ref:'Psalm 46:10',verse:'Be still, and know that I am God: I will be exalted among the nations, I will be exalted in the earth.',context:'A song of trust in the midst of upheaval.',cat:'Psalms'},
 {id:'micah68',author:'Micah',avatar:'🌿',ref:'Micah 6:8',verse:'He hath showed thee, O man, what is good; and what doth Jehovah require of thee, but to do justly, and to love kindness, and to walk humbly with thy God?',context:'A prophet summarizes a life of faithful justice and humility.',cat:'Wisdom'},
@@ -62,6 +123,8 @@ const extras=[
 {id:'gen126',author:'Moses',avatar:'📜',ref:'Genesis 1:26',verse:'And God said, Let us make man in our image, after our likeness.',context:'The creation account reaches humanity.',cat:'Story',saga:'creation',step:2,place:'Creation · Humanity'},
 {id:'matt2819',author:'Jesus',avatar:'✝️',ref:'Matthew 28:19–20',verse:'Go ye therefore, and make disciples of all the nations, baptizing them into the name of the Father and of the Son and of the Holy Spirit.',context:'The risen Jesus commissions His disciples.',cat:'Jesus'}
 ].map(p=>({...p,role:p.author==='Jesus'?'The Teacher · Gospel account':p.cat==='Letters'?'Apostle · Letter':'Biblical author'}));
+
+// Note: Jesus is intentionally excluded from imagined replies out of reverence.
 const reply={
 'Moses':[['📜','The Lord will fight for you; keep your heart steady.'],['🪵','Remember the wonders He has already done.']],
 'Miriam':[['🎶','Then let the whole camp sing of His deliverance.'],['📜','The Lord brought us through; we will remember.']],
@@ -70,74 +133,760 @@ const reply={
 'David':[['👑','The battle belongs to Jehovah; courage begins with trust.'],['🪨','A giant can look enormous until faith changes your view.']],
 'Saul':[['👑','I watched a young shepherd step forward when others hesitated.'],['🛡️','May the Lord give you courage for the battle before you.']],
 'Eliab':[['🪨','I questioned my brother’s motives, but the story was larger than I knew.'],['👑','Sometimes courage surprises even those closest to us.']],
-'Jesus':[['✝️','Let not your heart be troubled: believe in God, believe also in me.'],['🌿','Consider what this moment reveals about faith, hope, and the Father.']],
 'Martha':[['🌿','Even in grief, I learned to bring my questions to the Lord.'],['🕯️','Hope can stand beside sorrow.']],
 'Luke':[['📖','I have set these events in order so that the story may be understood.'],['🕊️','Look closely at how the promise reaches people from every place.']],
-'Peter':[['🐟','Repentance is a beginning; now walk faithfully in what you have received.'],['🔥','The good news is meant to be spoken with courage.']],
+'Peter':[['🐟','Lord, to whom shall we go? Thou hast the words of eternal life.'],['🔥','The good news is meant to be spoken with courage.']],
 'Paul':[['✉️','Grace and peace to you as you hold fast to this word.'],['🕊️','Let prayer, gratitude, and love shape your next step.']],
-'John':[['🕊️','Let this word draw you toward love and truth.'],['📖','These things are written that you may believe.']],
+'John':[['🕊️','Let this word draw you toward love and truth.'],['📖','These things are written that ye may believe.']],
+'Matthew':[['📖','When we heard Him teach on the mount, the crowds were astonished at His authority.']],
 'Solomon':[['👑','Seek wisdom patiently; let understanding guide your next step.']],
 'Isaiah':[['🔥','Those who hope in the Lord will find renewed strength.']],
 'Noah':[['🪵','We waited through the storm, and the Lord remembered us.'],['🕊️','A small sign of hope can change the whole day.']],
 'Job':[['🌩️','Faith may speak through tears and still be faith.']],
-'Habakkuk':[['🌾','Even when the fields are empty, I will rejoice in the God of my salvation.']],
-'Luke':[['📖','The account continues; watch how each moment leads to the next.']]
+'Habakkuk':[['🌾','Even when the fields are empty, I will rejoice in the God of my salvation.']]
 };
 const crossReplies={redsea:['Joshua','Aaron'],goliath:['Saul','Eliab'],lazarus:['Martha','John'],pentecost:['Peter','John'],flood:['Miriam','Joshua'],creation:['David','John']};
-let defaults={likes:[],saved:[],comments:{},shares:0,mode:'For You',characters:true,storyFirst:true,liveSaga:true,compact:false,seenLive:[],reactions:{},unlocked:{},apiPosts:[],apiDone:[],liveSeen:[],threadOpen:{}};
-let state={...defaults};try{state={...state,...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch{};for(const k of ['comments','reactions','unlocked','threadOpen'])state[k]||={};for(const k of ['likes','saved','seenLive','apiPosts','apiDone','liveSeen'])state[k]||=[];
-const seedAll=[...seed,...extras].map(p=>({...p,handle:p.handle||'@'+String(p.author).replace(/[^A-Za-z]/g,'')+(p.author==='Paul'?'_Apostle':p.author==='David'?'KingDavid':p.author==='Miriam'?'_Prophetess':''),createdAt:p.createdAt||Date.now()-Math.floor(Math.random()*10000000)}));
-let mode=state.mode||'For You',order=[],shown=0,loading=false,pending=[],instanceCounter=0,apiLoading=false,feedRound=0,injectedIds=new Set();
-const apiQueue=['Psalm 121:1','Romans 12:2','Isaiah 41:10','Matthew 11:28','2 Timothy 1:7','1 Corinthians 13:4','Psalm 34:8','Hebrews 11:1','James 1:5','John 15:5','Proverbs 16:3','Romans 15:13'];
-function persist(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch{toast('Storage is full. Export your activity before clearing browser data.')}}
+const gospelWitnesses=['John','Peter','Matthew','Martha','Luke'];
+
+// Expanded 100+ passage discovery pool for continuous unseen Scripture
+const apiQueue=[
+  'Psalm 121:1-2','Romans 12:2','Isaiah 41:10','Matthew 11:28-30','2 Timothy 1:7','1 Corinthians 13:4-7','Psalm 34:8','Hebrews 11:1','James 1:5','John 15:5','Proverbs 16:3','Romans 15:13',
+  'Psalm 19:1','Psalm 91:1-2','Psalm 103:1-4','Psalm 139:1-4','Psalm 16:8','Psalm 37:4-5','Psalm 40:1-2','Psalm 51:10','Psalm 62:1-2','Psalm 73:26','Psalm 84:11','Psalm 118:24','Psalm 145:18',
+  'Proverbs 4:23','Proverbs 15:1','Proverbs 18:10','Proverbs 22:6','Proverbs 27:17','Ecclesiastes 3:1','Ecclesiastes 4:9-10','Isaiah 26:3','Isaiah 43:1-2','Isaiah 53:5','Isaiah 55:8-9','Jeremiah 29:11','Zephaniah 3:17',
+  'Matthew 5:3-9','Matthew 7:7-8','Matthew 22:37-39','Mark 10:45','Luke 6:31','Luke 11:9','John 1:1-5','John 8:12','John 10:10-11','John 13:34-35','John 14:27','John 16:33',
+  'Acts 1:8','Romans 5:8','Romans 8:1','Romans 8:28','Romans 10:17','1 Corinthians 10:13','1 Corinthians 16:13-14','2 Corinthians 4:16-18','2 Corinthians 5:17','2 Corinthians 12:9',
+  'Galatians 2:20','Galatians 5:22-23','Galatians 6:9','Ephesians 2:8-10','Ephesians 3:20-21','Ephesians 4:32','Philippians 1:6','Philippians 2:3-4','Philippians 4:8','Philippians 4:13',
+  'Colossians 3:12-14','Colossians 3:23','1 Thessalonians 5:16-18','2 Timothy 3:16-17','Hebrews 4:12','Hebrews 4:16','Hebrews 12:1-2','Hebrews 13:8','James 1:2-4','James 1:17','James 4:8',
+  '1 Peter 2:9','1 Peter 3:15','1 John 1:9','1 John 4:7-8','1 John 4:18-19','Revelation 3:20','Revelation 21:4','Deuteronomy 31:6','Numbers 6:24-26','Ruth 1:16','Nehemiah 8:10'
+];
+
+let defaults={likes:[],saved:[],comments:{},shares:0,mode:'For You',characters:true,storyFirst:true,liveSaga:true,compact:false,unseenFirst:true,defaultTrans:'asv',seenPosts:[],postTrans:{},transCache:{},seenLive:[],reactions:{},unlocked:{},apiPosts:[],apiDone:[],liveSeen:[],threadOpen:{}};
+let state={...defaults};
+try{state={...state,...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch{}
+function normalizeState(){
+  for(const k of ['comments','reactions','unlocked','threadOpen','postTrans','transCache'])state[k]||={};
+  for(const k of ['likes','saved','seenLive','apiPosts','apiDone','liveSeen','seenPosts'])state[k]||=[];
+  if(!TRANS_LIST.includes(state.defaultTrans))state.defaultTrans='asv';
+  // Clean out any legacy imagined replies attributed to Jesus
+  for(const pid of Object.keys(state.comments)){
+    state.comments[pid]=(state.comments[pid]||[]).filter(c=>!(c[0]==='Jesus'&&c[3]===true));
+  }
+}
+normalizeState();
+
+const seedAll=[...seed,...extras].map(p=>({...p,handle:p.handle||profiles[p.author]?.handle||'@'+String(p.author).replace(/[^A-Za-z]/g,''),createdAt:p.createdAt||Date.now()-Math.floor(Math.random()*10000000)}));
+let mode=state.mode||'For You',order=[],shown=0,loading=false,pending=[],instanceCounter=0,apiLoading=false,injectedIds=new Set();
+
+// IndexedDB Dual-Write & Automatic Recovery for PWA Persistence
+function idbStore(rwMode,cb){
+  try{
+    const req=indexedDB.open('BibleFeedDB',1);
+    req.onupgradeneeded=()=>req.result.createObjectStore('kv');
+    req.onsuccess=()=>{try{const tx=req.result.transaction('kv',rwMode);cb(tx.objectStore('kv'))}catch{}};
+  }catch{}
+}
+function persist(){
+  try{localStorage.setItem(KEY,JSON.stringify(state))}catch{toast('Storage is full. Export your activity before clearing browser data.')}
+  idbStore('readwrite',store=>store.put(JSON.parse(JSON.stringify(state)),KEY));
+}
+if(navigator.storage&&navigator.storage.persist)navigator.storage.persist();
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+window.addEventListener('pagehide',persist);
+
+// Recover from IndexedDB if localStorage was cleared by mobile OS
+idbStore('readonly',store=>{
+  const getReq=store.get(KEY);
+  getReq.onsuccess=()=>{
+    const idbState=getReq.result;
+    if(idbState){
+      const localScore=(state.saved?.length||0)+(state.likes?.length||0)+(state.seenPosts?.length||0);
+      const idbScore=(idbState.saved?.length||0)+(idbState.likes?.length||0)+(idbState.seenPosts?.length||0);
+      if(idbScore>localScore){
+        state={...defaults,...idbState};
+        normalizeState();
+        try{localStorage.setItem(KEY,JSON.stringify(state))}catch{}
+        syncSettingsUI();
+        render(true);
+        if($('#savedPage').classList.contains('active'))savedPage();
+        if($('#journeyPage').classList.contains('active'))stats();
+      }
+    }
+  };
+});
+
 function toast(s){let t=$('#toast');t.textContent=s;t.style.display='block';clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.style.display='none',2700)}
 function shuffle(a){for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
-function liveCanonical(){return events.map(e=>({...e,comments:[],baseLikes:Math.floor(20+e.step*17),time:'LIVE UPDATE',createdAt:Date.now()-60000,handle:'@'+e.author.replace(/[^A-Za-z]/g,'')}))}
+function liveCanonical(){return events.map(e=>({...e,comments:[],baseLikes:Math.floor(20+e.step*17),time:'LIVE UPDATE',createdAt:Date.now()-60000,handle:profiles[e.author]?.handle||'@'+e.author.replace(/[^A-Za-z]/g,'')}))}
 function all(){const fetched=(state.apiPosts||[]).filter(p=>p&&p.id);return [...seedAll,...liveCanonical(),...fetched]}
 function unlocked(p){return !p.saga||(state.unlocked[p.saga]||1)>=(p.step||1)}
-function chars(p){let base=[...(p.comments||[])],extra=state.comments[p.id]||[];return [...base,...extra].filter(c=>state.characters||c[3]!==true)}
+function chars(p){let base=[...(p.comments||[])],extra=state.comments[p.id]||[];return [...base,...extra].filter(c=>c[0]!=='Jesus'||c[3]!==true).filter(c=>state.characters||c[3]!==true)}
 function storyPosts(posts){let buckets=new Map(),single=[];posts.forEach(p=>{if(p.saga){if(!buckets.has(p.saga))buckets.set(p.saga,[]);buckets.get(p.saga).push(p)}else single.push([p])});let chains=[...buckets.values()].map(a=>a.sort((x,y)=>(x.step||0)-(y.step||0)));return {chains,single}}
-function filtered(){let posts=all().filter(p=>unlocked(p));posts=posts.filter(p=>mode==='Story Mode'?!!p.saga:mode==='Jesus'?p.cat==='Jesus'||p.author==='Jesus':mode==='Psalms'?p.cat==='Psalms'||/^Psalm /.test(p.ref):mode==='Wisdom'?p.cat==='Wisdom':mode==='Letters'?p.cat==='Letters':true);let {chains,single}=storyPosts(posts);if(mode==='Story Mode')return chains.sort((a,b)=>a[0].saga.localeCompare(b[0].saga)).flat();if(state.storyFirst&&mode==='For You')return [...shuffle(chains),...shuffle(single)].flat();return shuffle([...chains,...single]).flat()}
+
+function prioritizeUnseenGroups(groups){
+  if(!state.unseenFirst)return shuffle(groups);
+  const unseen=[],seen=[];
+  for(const g of groups){
+    if(g.some(p=>!state.seenPosts.includes(p.id)))unseen.push(g);
+    else seen.push(g);
+  }
+  return [...shuffle(unseen),...shuffle(seen)];
+}
+
+function filtered(){
+  let posts=all().filter(p=>unlocked(p));
+  if(mode==='Unseen'){
+    let unseen=posts.filter(p=>!state.seenPosts.includes(p.id));
+    if(unseen.length)posts=unseen;
+  }else{
+    posts=posts.filter(p=>mode==='Story Mode'?!!p.saga:mode==='Jesus'?p.cat==='Jesus'||p.author==='Jesus':mode==='Psalms'?p.cat==='Psalms'||/^Psalm /i.test(p.ref):mode==='Wisdom'?p.cat==='Wisdom':mode==='Letters'?p.cat==='Letters':true);
+  }
+  let {chains,single}=storyPosts(posts);
+  if(mode==='Story Mode')return chains.sort((a,b)=>a[0].saga.localeCompare(b[0].saga)).flat();
+  if(state.storyFirst&&mode==='For You')return [...prioritizeUnseenGroups(chains),...prioritizeUnseenGroups(single)].flat();
+  return prioritizeUnseenGroups([...chains,...single]).flat();
+}
+
 function get(id){return all().find(p=>p.id===id)||null}
 function relTime(p){let ms=Math.max(0,Date.now()-(p.createdAt||Date.now())),m=Math.floor(ms/60000);if(p.time==='LIVE UPDATE'&&m<60)return m<1?'just now':m+'m ago';if(m<1)return 'just now';if(m<60)return m+'m ago';if(m<1440)return Math.floor(m/60)+'h ago';return Math.floor(m/1440)+'d ago'}
-function renderComments(p){return chars(p).map(c=>`<div class="comment"><div class="cavatar">${esc(c[1]||'💬')}</div><div class="cbody"><span class="cname">${esc(c[0])}</span>${c[3]===true?'<span class="fiction">IMAGINED CHARACTER COMMENTARY</span>':''}<div>${esc(c[2])}</div></div></div>`).join('')}
-function postHTML(p,instanceId){const id=p.id,liked=state.likes.includes(id),saved=state.saved.includes(id),r=state.reactions[id]||{},cs=chars(p),story=!!p.saga,opened=state.threadOpen[id]!==false;let railClass='';if(story){let same=order.filter(x=>x.saga===p.saga&&unlocked(x)).sort((a,b)=>(a.step||0)-(b.step||0));railClass=(same[0]?.id===p.id?' thread-first':'')+(same[same.length-1]?.id===p.id?' thread-last':' thread-middle')}
-return `<article class="post ${story?'saga thread-linked'+railClass:''}" data-post="${esc(id)}" data-instance="${esc(instanceId)}" data-saga="${esc(p.saga||'')}">${story?'<div class="rail"></div>':''}<div class="body"><div class="head"><div class="avatar">${esc(p.avatar||'📜')}</div><div><div class="author">${esc(p.author)}${p.author==='Jesus'?' ✦':''}</div><div class="role">${esc(p.role||'Biblical figure')} <span class="handle">${esc(p.handle||'@'+p.author.replace(/[^A-Za-z]/g,''))}</span></div></div><div class="right">${story?'<span class="live">● STORY THREAD</span>':'SCRIPTURE'}<span class="timestamp">${esc(relTime(p))}</span></div></div><div class="meta"><span>${esc(p.ref)}</span><span class="loc">${story?'📍 '+esc(p.place||'Story timeline'):''}</span></div><blockquote class="verse">“${esc(p.verse)}”</blockquote><div class="context">${esc(p.context)}</div>${story?`<span class="sagapill">PART ${p.step||1} · ${esc(p.saga.toUpperCase())}</span>`:''}<div class="chapter" id="chapter-${esc(instanceId)}" data-canonical="${esc(id)}"></div><div class="tools"><button class="tool ${liked?'liked':''}" data-a="like" data-id="${esc(id)}">${liked?'♥ Liked':'♡ Like'} ${p.baseLikes||''}</button><button class="tool" data-a="react" data-kind="amen" data-id="${esc(id)}">🙏 Amen ${r.amen||0}</button><button class="tool" data-a="react" data-kind="selah" data-id="${esc(id)}">🔥 Selah ${r.selah||0}</button><button class="tool" data-a="react" data-kind="wisdom" data-id="${esc(id)}">💡 Wisdom ${r.wisdom||0}</button><button class="tool reply-toggle" data-a="comments" data-id="${esc(id)}">▤ Replies (${cs.length}) ${opened?'▾':'▸'}</button><button class="tool" data-a="share" data-id="${esc(id)}">↗ Reshare</button><button class="tool ${saved?'saved':''}" data-a="save" data-id="${esc(id)}">${saved?'◆ Saved':'♧ Save'}</button><button class="tool" data-a="context" data-id="${esc(id)}" data-instance="${esc(instanceId)}">Read context</button></div><div class="comments ${opened?'':'closed'}" id="comments-${esc(instanceId)}" data-canonical="${esc(id)}">${renderComments(p)}<form class="inlineform" data-form="${esc(id)}"><input name="comment" maxlength="700" placeholder="Add a comment…" aria-label="Add a comment"><button>Post</button></form><div class="typing-host" id="typing-${esc(instanceId)}"></div></div><div class="note">Character responses are imagined commentary, not Scripture.</div></div></article>`}
-function append(){if(loading)return;loading=true;let raw=order.slice(shown,shown+5),batch=raw.filter(p=>!injectedIds.has(p.id));if(!raw.length&&!apiLoading&&state.apiDone.length<apiQueue.length){fetchMoreFromAPI().finally(()=>{loading=false;if(order.length>shown)append();});return}if(raw.length){if(batch.length)$('#feed').insertAdjacentHTML('beforeend',batch.map(p=>postHTML(p,'inst-'+(++instanceCounter))).join(''));shown+=raw.length;$('#end').classList.add('hidden')}else if(state.apiDone.length>=apiQueue.length){$('#end').classList.remove('hidden');$('#end').textContent='You’re caught up with this curated collection. More passages can be added as the library grows.'}loading=false;document.body.classList.toggle('compact',!!state.compact)}
-function render(reset){if(reset){order=filtered();shown=0;injectedIds.clear();$('#feed').innerHTML='';$('#end').classList.add('hidden')}append();$('#description').textContent=mode==='Story Mode'?'Follow connected sagas in narrative order. New parts arrive one at a time.':mode==='Jesus'?'Teachings and moments from the life of Jesus.':mode==='Psalms'?'Prayer, praise, lament, and trust in the Psalms.':mode==='Wisdom'?'Wisdom and prophetic hope.':mode==='Letters'?'Letters, counsel, and encouragement from the apostles.':'A living feed of Scripture, story threads, and reflections.';persist()}
-function updateCards(id){let p=get(id);if(!p)return;$$(`[data-post="${CSS.escape(id)}"]`).forEach(card=>{const liked=state.likes.includes(id),saved=state.saved.includes(id),r=state.reactions[id]||{};let like=card.querySelector('[data-a="like"]'),save=card.querySelector('[data-a="save"]');if(like){like.classList.toggle('liked',liked);like.innerHTML=`${liked?'♥ Liked':'♡ Like'} ${p.baseLikes||''}`}if(save){save.classList.toggle('saved',saved);save.textContent=saved?'◆ Saved':'♧ Save'}for(const kind of ['amen','selah','wisdom']){let b=card.querySelector(`[data-a="react"][data-kind="${kind}"]`);if(b)b.textContent=({amen:'🙏 Amen ',selah:'🔥 Selah ',wisdom:'💡 Wisdom '})[kind]+(r[kind]||0)}let rb=card.querySelector('[data-a="comments"]');if(rb)rb.textContent=`▤ Replies (${chars(p).length}) ${state.threadOpen[id]!==false?'▾':'▸'}`;let box=card.querySelector('.comments');if(box)box.classList.toggle('closed',state.threadOpen[id]===false)});updateCommentInstances(id);}
-function updateCommentInstances(id){const p=get(id);if(!p)return;$$(`.comments[data-canonical="${CSS.escape(id)}"]`).forEach(box=>{const form=box.querySelector('form'),typing=box.querySelector('.typing-host');box.innerHTML=renderComments(p);if(form)box.appendChild(form);if(typing)box.appendChild(typing);let freshForm=box.querySelector('form');if(!freshForm){freshForm=document.createElement('form');freshForm.className='inlineform';freshForm.dataset.form=id;freshForm.innerHTML='<input name="comment" maxlength="700" placeholder="Add a comment…" aria-label="Add a comment"><button>Post</button>';box.appendChild(freshForm)}let freshTyping=box.querySelector('.typing-host');if(!freshTyping){freshTyping=document.createElement('div');freshTyping.className='typing-host';box.appendChild(freshTyping)}box.classList.toggle('closed',state.threadOpen[id]===false)});updateCardsWithoutComments(id)}
-function updateCardsWithoutComments(id){$$(`[data-post="${CSS.escape(id)}"] [data-a="comments"]`).forEach(b=>b.textContent=`▤ Replies (${chars(get(id)||{}).length}) ${state.threadOpen[id]!==false?'▾':'▸'}`)}
-function savedPage(){let a=state.saved.map(get).filter(Boolean);$('#saved').innerHTML=a.length?a.map(p=>postHTML(p,'saved-'+(++instanceCounter))).join(''):'<div class="end">No saved verses yet. Tap ♧ Save on a post to keep it here.</div>'}
-function stats(){$('#nlikes').textContent=state.likes.length;$('#ncomments').textContent=Object.values(state.comments).reduce((n,a)=>n+a.filter(c=>c[0]==='You').length,0);$('#nshares').textContent=state.shares}
-function page(id){$$('.page').forEach(x=>x.classList.toggle('active',x.id===id));$$('.nav').forEach(x=>x.classList.toggle('active',x.dataset.page===id));if(id==='savedPage')savedPage();if(id==='journeyPage')stats();window.scrollTo({top:0,behavior:'smooth'})}
-async function makeQuoteFile(p){const canvas=document.createElement('canvas');canvas.width=1080;canvas.height=1350;const c=canvas.getContext('2d');c.fillStyle='#101113';c.fillRect(0,0,1080,1350);const grad=c.createLinearGradient(0,0,1080,1350);grad.addColorStop(0,'#302718');grad.addColorStop(1,'#101113');c.fillStyle=grad;c.fillRect(42,42,996,1266);c.strokeStyle='#d6b36a';c.lineWidth=3;c.strokeRect(65,65,950,1220);c.fillStyle='#d6b36a';c.font='bold 28px system-ui';c.fillText('✝  THE BIBLE FEED',100,145);c.fillStyle='#f3f0e9';let text='“'+p.verse+'”',words=text.split(/\s+/),lines=[],line='';c.font='48px Georgia';const max=850;for(const w of words){const test=line?line+' '+w:w;if(c.measureText(test).width>max&&line){lines.push(line);line=w}else line=test}if(line)lines.push(line);let y=Math.max(330,(1350-lines.length*66)/2);lines.forEach(l=>{c.fillText(l,100,y);y+=66});c.fillStyle='#f0d59a';c.font='bold 29px system-ui';c.fillText(p.ref,100,1110);c.fillStyle='#aaa8a1';c.font='24px system-ui';c.fillText(p.author+' · ASV wording as displayed',100,1160);c.fillText('Read the passage in context.',100,1210);return await new Promise(resolve=>canvas.toBlob(resolve,'image/png'))}
-async function share(p){let text=`${p.author} — ${p.ref}\n“${p.verse}”\n\nShared from The Bible Feed`;try{const blob=await makeQuoteFile(p);const file=blob?new File([blob],`bible-feed-${p.id}.png`,{type:'image/png'}):null;if(file&&navigator.canShare?.({files:[file]})&&navigator.share)await navigator.share({files:[file],title:p.ref,text});else if(file){const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`bible-feed-${p.id}.png`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1500);if(navigator.share)await navigator.share({title:p.ref,text});else if(navigator.clipboard?.writeText)await navigator.clipboard.writeText(text);toast('Quote card downloaded; verse text copied/shared where supported.')}else if(navigator.share)await navigator.share({title:p.ref,text});else if(navigator.clipboard?.writeText)await navigator.clipboard.writeText(text);state.shares++;persist();stats()}catch(e){if(e.name!=='AbortError')toast('Could not share automatically. Try again or use your browser’s download settings.')}}
-async function context(p,instanceId){let el=$('#chapter-'+CSS.escape(instanceId));if(!el)return;if(el.classList.contains('open')){el.classList.remove('open');return}el.classList.add('open');if(el.dataset.loaded)return;el.textContent='Loading chapter context…';try{let m=p.ref.match(/^(\d?\s?[A-Za-z ]+?)\s+(\d+)/);if(!m)throw Error();let res=await fetch('https://bible-api.com/'+encodeURIComponent(m[1].trim()+' '+m[2])+'?translation=asv',{signal:AbortSignal.timeout(6500)});if(!res.ok)throw Error();let data=await res.json();el.innerHTML=`<b>${esc(data.reference||p.ref)} · ASV</b>`+(data.verses||[]).slice(0,14).map(v=>`<p><b>${v.verse}.</b> ${esc(v.text.trim())}</p>`).join('')+'<div class="note">Fetched from a public Bible API.</div>';el.dataset.loaded='1'}catch{el.innerHTML=`<b>${esc(p.ref)}</b><p>${esc(p.context)}</p><p>Full chapter lookup is unavailable right now; read the surrounding passage in your preferred Bible.</p><div class="note">Internet connection required for live context.</div>`}}
-function appendReply(id,name,avatar,message){(state.comments[id]||=[]).push([name,avatar,message,true]);persist();updateCommentInstances(id)}
-function characterReply(id){if(!state.characters)return;const p=get(id);if(!p)return;const targets=crossReplies[p.saga]||[];const options=reply[p.author]||[['🕊️','May peace and wisdom guide you as you reflect on this passage.']];const chosen=options[Math.floor(Math.random()*options.length)];const inst=$$(`[data-post="${CSS.escape(id)}"] .typing-host`).find(el=>!el.closest('.comments').classList.contains('closed'));if(inst)inst.innerHTML=`<div class="typing">${esc(p.author)} is reflecting…</div>`;setTimeout(()=>{if(!state.characters)return;appendReply(id,p.author,chosen[0],chosen[1]);const cross=targets.filter(n=>n!==p.author);if(cross.length&&Math.random()<.82){const n=cross[Math.floor(Math.random()*cross.length)],opts=reply[n]||[['💬','I remember this moment differently, but I stand with the truth of the story.']];const r=opts[Math.floor(Math.random()*opts.length)];setTimeout(()=>{if(state.characters)appendReply(id,n,r[0],r[1])},650)}$$(`[data-post="${CSS.escape(id)}"] .typing-host`).forEach(el=>el.innerHTML='');toast('Character replies added · imagined commentary')},1800+Math.random()*500)}
-function nextUnlock(){let candidates=all().filter(p=>p.saga&&p.step>(state.unlocked[p.saga]||1)).sort((a,b)=>(a.createdAt||0)-(b.createdAt||0));if(!candidates.length)return null;const saga=candidates[0].saga;return candidates.filter(p=>p.saga===saga).sort((a,b)=>a.step-b.step)[0]}
-function scheduleLive(){clearTimeout(scheduleLive.timer);if(!state.liveSaga)return;scheduleLive.timer=setTimeout(()=>{let p=nextUnlock();if(!p){scheduleLive();return}state.unlocked[p.saga]=p.step;state.seenLive.push(p.id);if(!order.some(x=>x.id===p.id))order.push(p);persist();pending.push(p);$('#newbanner').classList.remove('hidden');$('#showNew').textContent=`↑ 🔴 LIVE: ${p.author} · ${p.ref}`;$('#liveStatus').textContent=`New chapter unlocked · ${p.place||p.saga}`;toast(`🔴 LIVE: ${p.author} · ${p.ref}`);scheduleLive()},30000)}
-async function fetchMoreFromAPI(){if(apiLoading)return;apiLoading=true;let refs=apiQueue.filter(r=>!state.apiDone.includes(r));if(!refs.length){apiLoading=false;return}let success=0;for(const ref of refs.slice(0,3)){state.apiDone.push(ref);try{const res=await fetch('https://bible-api.com/'+encodeURIComponent(ref)+'?translation=asv',{signal:AbortSignal.timeout(5000)});if(!res.ok)throw Error();const d=await res.json(),v=d.verses?.[0];if(v&&!all().some(p=>p.ref===d.reference)){let author=(d.reference||ref).split(' ')[0];let p={id:'api-'+ref.toLowerCase().replace(/[^a-z0-9]+/g,'-'),author,avatar:'📖',handle:'@ScriptureFeed',ref:d.reference||ref,verse:v.text.trim(),context:'A curated passage added from the public Bible API.',cat:/Psalm/i.test(ref)?'Psalms':/Matthew|John/i.test(ref)?'Jesus':/Romans|Philippians|Ephesians|Timothy|Corinthians/i.test(ref)?'Letters':'Wisdom',role:'Curated Scripture',createdAt:Date.now()};state.apiPosts.push(p);success++}}catch{}}persist();apiLoading=false;if(success){order=filtered();toast(`Loaded ${success} more Scripture ${success===1?'passage':'passages'}.`)}else if(state.apiDone.length>=apiQueue.length){$('#end').textContent='Offline: the curated feed is ready; reconnect to fetch additional passages.'} }
-$('#showNew').addEventListener('click',()=>{if(!pending.length)return;const p=pending.shift();injectedIds.add(p.id);$('#feed').insertAdjacentHTML('afterbegin',postHTML(p,'inst-'+(++instanceCounter)));$('#newbanner').classList.toggle('hidden',!pending.length);if(pending.length)$('#showNew').textContent=`↑ ${pending.length} new saga update${pending.length===1?'':'s'}`;$$(`[data-post="${CSS.escape(p.id)}"]`).at(-1)?.scrollIntoView({behavior:'smooth',block:'start'});persist()});
-document.addEventListener('click',async e=>{let b=e.target.closest('[data-a]');if(!b)return;let id=b.dataset.id,p=get(id);if(!p)return;switch(b.dataset.a){case'like':state.likes=state.likes.includes(id)?state.likes.filter(x=>x!==id):[...state.likes,id];persist();updateCards(id);break;case'save':state.saved=state.saved.includes(id)?state.saved.filter(x=>x!==id):[...state.saved,id];persist();updateCards(id);if($('#savedPage').classList.contains('active'))savedPage();toast(state.saved.includes(id)?'Saved for later':'Removed from saved');break;case'share':await share(p);break;case'context':await context(p,b.dataset.instance);break;case'comments':state.threadOpen[id]=state.threadOpen[id]===false?true:false;persist();updateCards(id);if(state.threadOpen[id]!==false){const box=b.closest('.post')?.querySelector('.inlineform input');box?.focus()}break;case'react':(state.reactions[id]||={amen:0,selah:0,wisdom:0})[b.dataset.kind]=(state.reactions[id][b.dataset.kind]||0)+1;persist();updateCards(id);break}});
-document.addEventListener('submit',e=>{let f=e.target.closest('[data-form]');if(!f)return;e.preventDefault();let id=f.dataset.form,v=f.elements.comment.value.trim();if(!v)return;(state.comments[id]||=[]).push(['You','💬',v,false]);f.elements.comment.value='';persist();updateCommentInstances(id);if(state.characters)characterReply(id);if($('#journeyPage').classList.contains('active'))stats()});
-$$('[data-mode]').forEach(b=>b.addEventListener('click',()=>{$$('[data-mode]').forEach(x=>x.classList.toggle('active',x===b));mode=b.dataset.mode;state.mode=mode;render(true)}));$$('[data-page]').forEach(b=>b.addEventListener('click',()=>page(b.dataset.page)));$('#shuffle').onclick=()=>{render(true);toast('Feed shuffled; connected story parts stay in order')};
-$('#characters').checked=state.characters!==false;$('#storyFirst').checked=!!state.storyFirst;$('#liveSaga').checked=state.liveSaga!==false;$('#compact').checked=!!state.compact;
-$('#characters').onchange=e=>{state.characters=e.target.checked;persist();$$('[data-post]').forEach(el=>updateCards(el.dataset.post))};$('#storyFirst').onchange=e=>{state.storyFirst=e.target.checked;persist();render(true)};$('#liveSaga').onchange=e=>{state.liveSaga=e.target.checked;persist();if(state.liveSaga)scheduleLive();else clearTimeout(scheduleLive.timer)};$('#compact').onchange=e=>{state.compact=e.target.checked;persist();document.body.classList.toggle('compact',state.compact)};
-$('#export').onclick=()=>{let u=URL.createObjectURL(new Blob([JSON.stringify({exportedAt:new Date().toISOString(),state},null,2)],{type:'application/json'})),a=document.createElement('a');a.href=u;a.download='bible-feed-activity.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1500)};
-$('#clear').onclick=()=>{if(!confirm('Clear likes, saved verses, comments, and settings from this browser?'))return;localStorage.removeItem(KEY);location.reload()};
-if('IntersectionObserver'in window){new IntersectionObserver(es=>{if(es.some(x=>x.isIntersecting)&&$('#feedPage').classList.contains('active'))append()},{rootMargin:'500px'}).observe($('#sentinel'))}else addEventListener('scroll',()=>{if(innerHeight+scrollY>document.body.offsetHeight-500&&$('#feedPage').classList.contains('active'))append()},{passive:true});
-// Deterministic first unlock: each saga begins at Part 1. Existing saved progress is preserved.
+
+function activeTransFor(p){return state.postTrans[p.id]||'asv'}
+function displayVerseText(p){
+  const tr=activeTransFor(p);
+  if(tr==='asv')return p.verse;
+  return state.transCache[p.id+'_'+tr]||p.verse;
+}
+
+function renderComments(p){
+  return chars(p).map(c=>`<div class="comment"><div class="cavatar profile-link" data-profile="${esc(c[0])}" title="View ${esc(c[0])}’s profile">${esc(c[1]||'💬')}</div><div class="cbody"><span class="cname ${c[0]!=='You'?'profile-link':''}" ${c[0]!=='You'?`data-profile="${esc(c[0])}"`:''}>${esc(c[0])}</span>${c[3]===true?'<span class="fiction">IMAGINED CHARACTER COMMENTARY</span>':''}<div>${esc(c[2])}</div></div></div>`).join('');
+}
+
+function postHTML(p,instanceId){
+  const id=p.id,liked=state.likes.includes(id),saved=state.saved.includes(id),seen=state.seenPosts.includes(id),r=state.reactions[id]||{},cs=chars(p),story=!!p.saga,opened=state.threadOpen[id]!==false;
+  const curTrans=activeTransFor(p),vText=displayVerseText(p);
+  let railClass='';
+  if(story){
+    let same=order.filter(x=>x.saga===p.saga&&unlocked(x)).sort((a,b)=>(a.step||0)-(b.step||0));
+    railClass=(same[0]?.id===p.id?' thread-first':'')+(same[same.length-1]?.id===p.id?' thread-last':' thread-middle');
+  }
+  return `<article class="post ${story?'saga thread-linked'+railClass:''}" data-post="${esc(id)}" data-instance="${esc(instanceId)}" data-saga="${esc(p.saga||'')}"><div class="body"><div class="head"><div class="avatar profile-link" data-profile="${esc(p.author)}" title="View ${esc(p.author)}’s profile">${esc(p.avatar||'📜')}</div><div><div class="author profile-link" data-profile="${esc(p.author)}">${esc(p.author)}${p.author==='Jesus'?' ✦':''}</div><div class="role">${esc(p.role||'Biblical figure')} <span class="handle profile-link" data-profile="${esc(p.author)}">${esc(p.handle||'@'+p.author.replace(/[^A-Za-z]/g,''))}</span></div></div><div class="right">${story?'<span class="live">● STORY THREAD</span>':'SCRIPTURE'}${seen?'<span class="seen-badge" title="Seen passage">✓ SEEN</span>':''}<span class="timestamp">${esc(relTime(p))}</span></div></div><div class="meta"><span>${esc(p.ref)} · <span class="trans-tag">${esc(TRANS_LABELS[curTrans]||'ASV')}</span></span><span class="loc">${story?'📍 '+esc(p.place||'Story timeline'):''}</span></div><blockquote class="verse">“${esc(vText)}”</blockquote><div class="context">${esc(p.context)}</div>${story?`<button class="sagapill" data-a="FilterSaga" data-saga="${esc(p.saga)}">PART ${p.step||1} · ${esc(p.saga.toUpperCase())}</button>`:''}<div class="chapter" id="chapter-${esc(instanceId)}" data-canonical="${esc(id)}"></div><div class="tools"><button class="tool ${liked?'liked':''}" data-a="like" data-id="${esc(id)}">${liked?'♥ Liked':'♡ Like'} ${p.baseLikes||''}</button><button class="tool" data-a="react" data-kind="amen" data-id="${esc(id)}">🙏 Amen ${r.amen||0}</button><button class="tool" data-a="react" data-kind="selah" data-id="${esc(id)}">🔥 Selah ${r.selah||0}</button><button class="tool" data-a="react" data-kind="wisdom" data-id="${esc(id)}">💡 Wisdom ${r.wisdom||0}</button><button class="tool ${curTrans!=='asv'?'trans-active':''}" data-a="translate" data-id="${esc(id)}" title="Switch Bible translation on the fly">🌐 ${esc(TRANS_LABELS[curTrans]||'ASV')} ▾</button><button class="tool reply-toggle" data-a="comments" data-id="${esc(id)}">▤ Replies (${cs.length}) ${opened?'▾':'▸'}</button><button class="tool" data-a="share" data-id="${esc(id)}">↗ Reshare</button><button class="tool ${saved?'saved':''}" data-a="save" data-id="${esc(id)}">${saved?'◆ Saved':'♧ Save'}</button><button class="tool" data-a="context" data-id="${esc(id)}" data-instance="${esc(instanceId)}">Read context</button></div><div class="comments ${opened?'':'closed'}" id="comments-${esc(instanceId)}" data-canonical="${esc(id)}">${renderComments(p)}<form class="inlineform" data-form="${esc(id)}"><input name="comment" maxlength="700" placeholder="Add a comment…" aria-label="Add a comment"><button>Post</button></form><div class="typing-host" id="typing-${esc(instanceId)}"></div></div><div class="note">Character responses are imagined commentary from historical witnesses, never Jesus and never Scripture.</div></div></article>`.replace('<article class="post saga','<article class="post saga').replace('<div class="body">',story?'<div class="rail"></div><div class="body">':'<div class="body">');
+}
+
+// Viewport Observer to automatically mark verses as Seen after 1.2s of reading
+const seenTimers=new Map();
+const seenObserver=('IntersectionObserver' in window)?new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    const card=entry.target,id=card.dataset.post;
+    if(!id)return;
+    if(entry.isIntersecting){
+      if(!state.seenPosts.includes(id)&&!seenTimers.has(id)){
+        seenTimers.set(id,setTimeout(()=>{
+          seenTimers.delete(id);
+          if(!state.seenPosts.includes(id)){
+            state.seenPosts.push(id);
+            persist();
+            $$(`[data-post="${CSS.escape(id)}"] .right`).forEach(r=>{
+              if(!r.querySelector('.seen-badge')){
+                const ts=r.querySelector('.timestamp');
+                if(ts)ts.insertAdjacentHTML('beforebegin','<span class="seen-badge" title="Seen passage">✓ SEEN</span>');
+              }
+            });
+            if($('#journeyPage').classList.contains('active'))stats();
+          }
+        },1200));
+      }
+    }else if(seenTimers.has(id)){
+      clearTimeout(seenTimers.get(id));
+      seenTimers.delete(id);
+    }
+  });
+},{threshold:0.55}):null;
+
+function observeCards(){
+  if(!seenObserver)return;
+  $$('#feed .post[data-post]').forEach(card=>seenObserver.observe(card));
+}
+
+function append(){
+  if(loading)return;
+  loading=true;
+  let raw=order.slice(shown,shown+5),batch=raw.filter(p=>!injectedIds.has(p.id));
+  if(!raw.length&&!apiLoading&&state.apiDone.length<apiQueue.length){
+    fetchMoreFromAPI().finally(()=>{loading=false;if(order.length>shown)append()});
+    return;
+  }
+  if(raw.length){
+    if(batch.length){
+      $('#feed').insertAdjacentHTML('beforeend',batch.map(p=>postHTML(p,'inst-'+(++instanceCounter))).join(''));
+      observeCards();
+    }
+    shown+=raw.length;
+    $('#end').classList.add('hidden');
+    // Pre-fetch fresh unseen passages when nearing the end of current feed
+    if(order.length-shown<=4&&!apiLoading&&state.apiDone.length<apiQueue.length){
+      fetchMoreFromAPI();
+    }
+  }else if(state.apiDone.length>=apiQueue.length){
+    $('#end').classList.remove('hidden');
+    $('#end').textContent='You’ve explored the entire library! Tap “Reset seen counter” in Journey to cycle fresh again.';
+  }
+  loading=false;
+  document.body.classList.toggle('compact',!!state.compact);
+}
+
+function render(reset){
+  if(reset){
+    order=filtered();
+    shown=0;
+    injectedIds.clear();
+    $('#feed').innerHTML='';
+    $('#end').classList.add('hidden');
+  }
+  append();
+  $('#description').textContent=mode==='Unseen'?`Showing unread passages first (${all().filter(p=>unlocked(p)&&!state.seenPosts.includes(p.id)).length} unseen remaining).`:mode==='Story Mode'?'Follow connected sagas in narrative order. New parts arrive one at a time.':mode==='Jesus'?'Teachings and moments from the life of Jesus (verbatim Scripture).':mode==='Psalms'?'Prayer, praise, lament, and trust in the Psalms.':mode==='Wisdom'?'Wisdom and prophetic hope.':mode==='Letters'?'Letters, counsel, and encouragement from the apostles.':'A living feed of Scripture, story threads, and reflections.';
+  persist();
+}
+
+function updateCards(id){
+  let p=get(id);if(!p)return;
+  const curTrans=activeTransFor(p),vText=displayVerseText(p);
+  $$(`[data-post="${CSS.escape(id)}"]`).forEach(card=>{
+    const liked=state.likes.includes(id),saved=state.saved.includes(id),r=state.reactions[id]||{};
+    let like=card.querySelector('[data-a="like"]'),save=card.querySelector('[data-a="save"]'),trBtn=card.querySelector('[data-a="translate"]'),vEl=card.querySelector('.verse'),trTag=card.querySelector('.trans-tag');
+    if(like){like.classList.toggle('liked',liked);like.innerHTML=`${liked?'♥ Liked':'♡ Like'} ${p.baseLikes||''}`}
+    if(save){save.classList.toggle('saved',saved);save.textContent=saved?'◆ Saved':'♧ Save'}
+    if(trBtn){trBtn.classList.toggle('trans-active',curTrans!=='asv');trBtn.textContent=`🌐 ${TRANS_LABELS[curTrans]||'ASV'} ▾`}
+    if(vEl)vEl.textContent=`“${vText}”`;
+    if(trTag)trTag.textContent=TRANS_LABELS[curTrans]||'ASV';
+    for(const kind of ['amen','selah','wisdom']){
+      let b=card.querySelector(`[data-a="react"][data-kind="${kind}"]`);
+      if(b)b.textContent=({amen:'🙏 Amen ',selah:'🔥 Selah ',wisdom:'💡 Wisdom '})[kind]+(r[kind]||0);
+    }
+    let rb=card.querySelector('[data-a="comments"]');
+    if(rb)rb.textContent=`▤ Replies (${chars(p).length}) ${state.threadOpen[id]!==false?'▾':'▸'}`;
+    let box=card.querySelector('.comments');
+    if(box)box.classList.toggle('closed',state.threadOpen[id]===false);
+  });
+  updateCommentInstances(id);
+}
+
+function updateCommentInstances(id){
+  const p=get(id);if(!p)return;
+  $$(`.comments[data-canonical="${CSS.escape(id)}"]`).forEach(box=>{
+    const form=box.querySelector('form'),typing=box.querySelector('.typing-host');
+    box.innerHTML=renderComments(p);
+    if(form)box.appendChild(form);
+    if(typing)box.appendChild(typing);
+    let freshForm=box.querySelector('form');
+    if(!freshForm){
+      freshForm=document.createElement('form');
+      freshForm.className='inlineform';
+      freshForm.dataset.form=id;
+      freshForm.innerHTML='<input name="comment" maxlength="700" placeholder="Add a comment…" aria-label="Add a comment"><button>Post</button>';
+      box.appendChild(freshForm);
+    }
+    let freshTyping=box.querySelector('.typing-host');
+    if(!freshTyping){
+      freshTyping=document.createElement('div');
+      freshTyping.className='typing-host';
+      box.appendChild(freshTyping);
+    }
+    box.classList.toggle('closed',state.threadOpen[id]===false);
+  });
+  updateCardsWithoutComments(id);
+}
+
+function updateCardsWithoutComments(id){
+  $$(`[data-post="${CSS.escape(id)}"] [data-a="comments"]`).forEach(b=>b.textContent=`▤ Replies (${chars(get(id)||{}).length}) ${state.threadOpen[id]!==false?'▾':'▸'}`);
+}
+
+// On-the-fly Per-Post Translation Switcher
+async function translatePost(p,btn){
+  const cur=activeTransFor(p);
+  const next=TRANS_LIST[(TRANS_LIST.indexOf(cur)+1)%TRANS_LIST.length];
+  if(next==='asv'){
+    state.postTrans[p.id]='asv';
+    persist();
+    updateCards(p.id);
+    toast(`${p.ref} · Switched to ASV`);
+    return;
+  }
+  const cacheKey=p.id+'_'+next;
+  if(state.transCache[cacheKey]){
+    state.postTrans[p.id]=next;
+    persist();
+    updateCards(p.id);
+    toast(`${p.ref} · Switched to ${TRANS_LABELS[next]}`);
+    return;
+  }
+  if(btn)btn.textContent=`🌐 ${TRANS_LABELS[next]}…`;
+  try{
+    const cleanRef=p.ref.replace(/[–—]/g,'-');
+    const res=await fetch('https://bible-api.com/'+encodeURIComponent(cleanRef)+'?translation='+next,{signal:AbortSignal.timeout(6500)});
+    if(!res.ok)throw Error();
+    const d=await res.json();
+    const txt=(d.text||'').replace(/\s+/g,' ').trim();
+    if(!txt)throw Error();
+    state.transCache[cacheKey]=txt;
+    state.postTrans[p.id]=next;
+    persist();
+    updateCards(p.id);
+    toast(`${p.ref} · Translated to ${TRANS_LABELS[next]}`);
+  }catch{
+    updateCards(p.id);
+    toast(`Could not load ${TRANS_LABELS[next]} offline. Reconnect to fetch translation.`);
+  }
+}
+
+function savedPage(){
+  let a=state.saved.map(get).filter(Boolean);
+  $('#saved').innerHTML=a.length?a.map(p=>postHTML(p,'saved-'+(++instanceCounter))).join(''):'<div class="end">No saved verses yet. Tap ♧ Save on a post to keep it here.</div>';
+}
+
+function stats(){
+  const totalUnlocked=all().filter(p=>unlocked(p)).length;
+  const seenCount=state.seenPosts.filter(id=>get(id)).length;
+  $('#nseen').textContent=`${seenCount} / ${totalUnlocked}`;
+  $('#nlikes').textContent=state.likes.length;
+  $('#ncomments').textContent=Object.values(state.comments).reduce((n,a)=>n+a.filter(c=>c[0]==='You').length,0);
+  $('#nshares').textContent=state.shares;
+}
+
+function resetSeenCounter(){
+  state.seenPosts=[];
+  persist();
+  stats();
+  render(true);
+  toast('Seen verses counter reset! Fresh feed ready.');
+}
+
+function page(id){
+  $$('.page').forEach(x=>x.classList.toggle('active',x.id===id));
+  $$('.nav').forEach(x=>x.classList.toggle('active',x.dataset.page===id));
+  if(id==='savedPage')savedPage();
+  if(id==='journeyPage')stats();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// Character Profile Modal Logic
+let currentProfileAuthor='David',currentProfileTab='posts';
+function openProfile(authorName,tab='posts'){
+  const cleanName=profiles[authorName]?authorName:(Object.keys(profiles).find(k=>k.toLowerCase()===String(authorName).toLowerCase())||authorName);
+  currentProfileAuthor=cleanName;
+  currentProfileTab=tab;
+  const info=profiles[cleanName]||{
+    avatar:'📜',
+    handle:'@'+String(cleanName).replace(/[^A-Za-z]/g,''),
+    role:'Biblical Witness & Scripture Voice',
+    bio:`Passages and narrative reflections associated with ${cleanName} in Scripture.`
+  };
+  $('#profAvatar').textContent=info.avatar;
+  $('#profName').textContent=cleanName+(cleanName==='Jesus'?' ✦':'');
+  $('#profRole').textContent=`${info.role} · ${info.handle}`;
+  $('#profBio').textContent=info.bio;
+
+  // Gather sagas this figure participates in
+  const charPosts=all().filter(p=>p.author===cleanName&&unlocked(p));
+  const sagas=[...new Set(charPosts.map(p=>p.saga).filter(Boolean))];
+  $('#profSagas').innerHTML=sagas.map(s=>`<button class="sagapill" data-a="FilterSaga" data-saga="${esc(s)}">📜 SAGA: ${esc(s.toUpperCase())}</button>`).join('');
+
+  renderProfileTab();
+  $('#profileModal').classList.add('open');
+}
+
+function renderProfileTab(){
+  $$('#profTabs .modal-tab').forEach(b=>b.classList.toggle('active',b.dataset.ptab===currentProfileTab));
+  const body=$('#profBody');
+  if(currentProfileTab==='directory'){
+    const names=Object.keys(profiles);
+    body.innerHTML=`<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px">`+names.map(n=>{
+      const pr=profiles[n];
+      const count=all().filter(p=>p.author===n&&unlocked(p)).length;
+      return `<div class="post" style="margin:0;padding:12px;cursor:pointer;align-items:center" data-profile="${esc(n)}"><div class="avatar">${esc(pr.avatar)}</div><div style="min-width:0"><div class="author">${esc(n)}${n==='Jesus'?' ✦':''}</div><div class="role" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(pr.role)}</div><div class="handle">${count} passage${count===1?'':'s'}</div></div></div>`;
+    }).join('')+`</div>`;
+    return;
+  }
+  if(currentProfileTab==='posts'){
+    const charPosts=all().filter(p=>p.author===currentProfileAuthor&&unlocked(p));
+    body.innerHTML=charPosts.length?charPosts.map(p=>postHTML(p,'prof-'+(++instanceCounter))).join(''):`<div class="end">No direct Scripture posts from ${esc(currentProfileAuthor)} unlocked yet. Check their Reflections tab!</div>`;
+    return;
+  }
+  if(currentProfileTab==='comments'){
+    if(currentProfileAuthor==='Jesus'){
+      body.innerHTML=`<div class="end">Out of reverence, The Bible Feed never generates imagined commentary for Jesus. His words appear solely as verbatim Scripture in the Scripture Posts tab.</div>`;
+      return;
+    }
+    const items=[];
+    for(const p of all().filter(unlocked)){
+      for(const c of chars(p)){
+        if(c[0]===currentProfileAuthor)items.push({post:p,comment:c});
+      }
+    }
+    body.innerHTML=items.length?items.map(({post,comment})=>`<div class="post" style="display:block;padding:13px"><div class="muted" style="margin-bottom:6px">On <b>${esc(post.author)}</b> · ${esc(post.ref)}</div><div class="comment" style="margin:0"><div class="cavatar">${esc(comment[1]||'💬')}</div><div class="cbody"><span class="cname">${esc(comment[0])}</span>${comment[3]===true?'<span class="fiction">IMAGINED CHARACTER COMMENTARY</span>':''}<div>${esc(comment[2])}</div></div></div></div>`).join(''):`<div class="end">No reflections recorded from ${esc(currentProfileAuthor)} yet.</div>`;
+  }
+}
+
+$('#closeProfile').onclick=()=>$('#profileModal').classList.remove('open');
+$('#profileModal').addEventListener('click',e=>{if(e.target===$('#profileModal'))$('#profileModal').classList.remove('open')});
+$('#peopleBtn').onclick=()=>openProfile('David','directory');
+$$('#profTabs .modal-tab').forEach(b=>b.addEventListener('click',()=>{currentProfileTab=b.dataset.ptab;renderProfileTab()}));
+
+async function makeQuoteFile(p){
+  const curTrans=TRANS_LABELS[activeTransFor(p)]||'ASV';
+  const vText=displayVerseText(p);
+  const canvas=document.createElement('canvas');canvas.width=1080;canvas.height=1350;
+  const c=canvas.getContext('2d');c.fillStyle='#101113';c.fillRect(0,0,1080,1350);
+  const grad=c.createLinearGradient(0,0,1080,1350);grad.addColorStop(0,'#302718');grad.addColorStop(1,'#101113');
+  c.fillStyle=grad;c.fillRect(42,42,996,1266);c.strokeStyle='#d6b36a';c.lineWidth=3;c.strokeRect(65,65,950,1220);
+  c.fillStyle='#d6b36a';c.font='bold 28px system-ui';c.fillText('✝  THE BIBLE FEED',100,145);
+  c.fillStyle='#f3f0e9';let text='“'+vText+'”',words=text.split(/\s+/),lines=[],line='';
+  c.font='48px Georgia';const max=850;
+  for(const w of words){const test=line?line+' '+w:w;if(c.measureText(test).width>max&&line){lines.push(line);line=w}else line=test}
+  if(line)lines.push(line);
+  let y=Math.max(330,(1350-lines.length*66)/2);lines.forEach(l=>{c.fillText(l,100,y);y+=66});
+  c.fillStyle='#f0d59a';c.font='bold 29px system-ui';c.fillText(`${p.ref} (${curTrans})`,100,1110);
+  c.fillStyle='#aaa8a1';c.font='24px system-ui';c.fillText(`${p.author} · ${curTrans} translation`,100,1160);
+  c.fillText('Read the passage in context.',100,1210);
+  return await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));
+}
+
+async function share(p){
+  const curTrans=TRANS_LABELS[activeTransFor(p)]||'ASV';
+  const vText=displayVerseText(p);
+  let text=`${p.author} — ${p.ref} (${curTrans})\n“${vText}”\n\nShared from The Bible Feed`;
+  try{
+    const blob=await makeQuoteFile(p);
+    const file=blob?new File([blob],`bible-feed-${p.id}.png`,{type:'image/png'}):null;
+    if(file&&navigator.canShare?.({files:[file]})&&navigator.share)await navigator.share({files:[file],title:p.ref,text});
+    else if(file){
+      const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`bible-feed-${p.id}.png`;a.click();
+      setTimeout(()=>URL.revokeObjectURL(url),1500);
+      if(navigator.share)await navigator.share({title:p.ref,text});
+      else if(navigator.clipboard?.writeText)await navigator.clipboard.writeText(text);
+      toast('Quote card downloaded; verse text copied/shared where supported.');
+    }else if(navigator.share)await navigator.share({title:p.ref,text});
+    else if(navigator.clipboard?.writeText)await navigator.clipboard.writeText(text);
+    state.shares++;persist();stats();
+  }catch(e){if(e.name!=='AbortError')toast('Could not share automatically. Try again or use your browser’s download settings.')}
+}
+
+async function context(p,instanceId){
+  let el=$('#chapter-'+CSS.escape(instanceId));if(!el)return;
+  if(el.classList.contains('open')){el.classList.remove('open');return}
+  el.classList.add('open');
+  const tr=activeTransFor(p)||state.defaultTrans||'asv';
+  if(el.dataset.loaded===tr)return;
+  el.textContent=`Loading chapter context (${TRANS_LABELS[tr]||'ASV'})…`;
+  try{
+    let m=p.ref.match(/^(\d?\s?[A-Za-z ]+?)\s+(\d+)/);if(!m)throw Error();
+    let res=await fetch('https://bible-api.com/'+encodeURIComponent(m[1].trim()+' '+m[2])+'?translation='+tr,{signal:AbortSignal.timeout(6500)});
+    if(!res.ok)throw Error();
+    let data=await res.json();
+    el.innerHTML=`<b>${esc(data.reference||p.ref)} · ${esc(TRANS_LABELS[tr]||'ASV')}</b>`+(data.verses||[]).slice(0,14).map(v=>`<p><b>${v.verse}.</b> ${esc(v.text.trim())}</p>`).join('')+'<div class="note">Fetched from bible-api.com.</div>';
+    el.dataset.loaded=tr;
+  }catch{
+    el.innerHTML=`<b>${esc(p.ref)}</b><p>${esc(p.context)}</p><p>Full chapter lookup is unavailable right now; read the surrounding passage in your preferred Bible.</p><div class="note">Internet connection required for live context.</div>`;
+  }
+}
+
+function appendReply(id,name,avatar,message){
+  if(name==='Jesus')return; // Never generate imagined commentary from Jesus
+  (state.comments[id]||=[]).push([name,avatar,message,true]);
+  persist();
+  updateCommentInstances(id);
+}
+
+function characterReply(id){
+  if(!state.characters)return;
+  const p=get(id);if(!p)return;
+  const targets=(crossReplies[p.saga]||[]).filter(n=>n!=='Jesus');
+  // If the post author is Jesus, route reflection to a Gospel witness/disciple instead of mimicking Jesus
+  const responder=p.author==='Jesus'?gospelWitnesses[Math.floor(Math.random()*gospelWitnesses.length)]:p.author;
+  const options=reply[responder]||[['🕊️','May peace and wisdom guide you as you reflect on this passage.']];
+  const chosen=options[Math.floor(Math.random()*options.length)];
+  const inst=$$(`[data-post="${CSS.escape(id)}"] .typing-host`).find(el=>!el.closest('.comments').classList.contains('closed'));
+  if(inst)inst.innerHTML=`<div class="typing">${esc(responder)} is reflecting…</div>`;
+  setTimeout(()=>{
+    if(!state.characters)return;
+    appendReply(id,responder,chosen[0],chosen[1]);
+    const cross=targets.filter(n=>n!==responder&&n!=='Jesus');
+    if(cross.length&&Math.random()<.82){
+      const n=cross[Math.floor(Math.random()*cross.length)],opts=reply[n]||[['💬','I stand with the truth of this testimony.']];
+      const r=opts[Math.floor(Math.random()*opts.length)];
+      setTimeout(()=>{if(state.characters)appendReply(id,n,r[0],r[1])},650);
+    }
+    $$(`[data-post="${CSS.escape(id)}"] .typing-host`).forEach(el=>el.innerHTML='');
+    toast(`${responder} replied · imagined witness commentary`);
+  },1800+Math.random()*500);
+}
+
+function nextUnlock(){
+  let candidates=all().filter(p=>p.saga&&p.step>(state.unlocked[p.saga]||1)).sort((a,b)=>(a.createdAt||0)-(b.createdAt||0));
+  if(!candidates.length)return null;
+  const saga=candidates[0].saga;
+  return candidates.filter(p=>p.saga===saga).sort((a,b)=>a.step-b.step)[0];
+}
+
+function scheduleLive(){
+  clearTimeout(scheduleLive.timer);
+  if(!state.liveSaga)return;
+  scheduleLive.timer=setTimeout(()=>{
+    let p=nextUnlock();
+    if(!p){scheduleLive();return}
+    state.unlocked[p.saga]=p.step;
+    state.seenLive.push(p.id);
+    if(!order.some(x=>x.id===p.id))order.push(p);
+    persist();
+    pending.push(p);
+    $('#newbanner').classList.remove('hidden');
+    $('#showNew').textContent=`↑ 🔴 LIVE: ${p.author} · ${p.ref}`;
+    $('#liveStatus').textContent=`New chapter unlocked · ${p.place||p.saga}`;
+    toast(`🔴 LIVE: ${p.author} · ${p.ref}`);
+    scheduleLive();
+  },30000);
+}
+
+function inferAuthorFromRef(ref){
+  if(/^Psalm/i.test(ref))return {author:'David',avatar:'👑',role:'Psalmist · Curated Scripture'};
+  if(/^Proverbs|^Ecclesiastes/i.test(ref))return {author:'Solomon',avatar:'👑',role:'Wisdom Literature'};
+  if(/^Isaiah/i.test(ref))return {author:'Isaiah',avatar:'🔥',role:'Prophet · Curated Scripture'};
+  if(/^Jeremiah|^Lamentations/i.test(ref))return {author:'Jeremiah',avatar:'🕯️',role:'Prophet · Curated Scripture'};
+  if(/^Matthew/i.test(ref))return {author:'Matthew',avatar:'📖',role:'Gospel Account'};
+  if(/^Mark|^1 Peter|^2 Peter/i.test(ref))return {author:'Peter',avatar:'🐟',role:'Apostolic Witness'};
+  if(/^Luke|^Acts/i.test(ref))return {author:'Luke',avatar:'📖',role:'Historian & Evangelist'};
+  if(/^John|^1 John|^Revelation/i.test(ref))return {author:'John',avatar:'🕊️',role:'Apostle & Evangelist'};
+  if(/^Romans|Corinthians|^Galatians|^Ephesians|^Philippians|^Colossians|Thessalonians|Timothy/i.test(ref))return {author:'Paul',avatar:'✉️',role:'Apostle · Epistle'};
+  if(/^Genesis|^Exodus|^Numbers|^Deuteronomy/i.test(ref))return {author:'Moses',avatar:'📜',role:'Torah · Curated Scripture'};
+  return {author:(ref||'Scripture').split(' ')[0],avatar:'📖',role:'Curated Scripture'};
+}
+
+async function fetchMoreFromAPI(){
+  if(apiLoading)return;
+  apiLoading=true;
+  let refs=apiQueue.filter(r=>!state.apiDone.includes(r));
+  if(!refs.length){apiLoading=false;return}
+  let success=0;
+  const tr=state.defaultTrans||'asv';
+  for(const ref of refs.slice(0,4)){
+    state.apiDone.push(ref);
+    try{
+      const res=await fetch('https://bible-api.com/'+encodeURIComponent(ref)+'?translation='+tr,{signal:AbortSignal.timeout(5000)});
+      if(!res.ok)throw Error();
+      const d=await res.json();
+      const text=(d.text||d.verses?.[0]?.text||'').replace(/\s+/g,' ').trim();
+      if(text&&!all().some(p=>p.ref===(d.reference||ref))){
+        const meta=inferAuthorFromRef(d.reference||ref);
+        const pid='api-'+ref.toLowerCase().replace(/[^a-z0-9]+/g,'-');
+        let p={
+          id:pid,
+          author:meta.author,
+          avatar:meta.avatar,
+          handle:profiles[meta.author]?.handle||'@ScriptureFeed',
+          ref:d.reference||ref,
+          verse:text,
+          context:'Added from the expanded Scripture discovery library.',
+          cat:/Psalm/i.test(ref)?'Psalms':/Matthew|Mark|Luke|John/i.test(ref)?'Jesus':/Romans|Corinthians|Galatians|Ephesians|Philippians|Colossians|Thessalonians|Timothy|Peter|Hebrews|James/i.test(ref)?'Letters':'Wisdom',
+          role:meta.role,
+          createdAt:Date.now()
+        };
+        if(tr!=='asv'){
+          state.postTrans[pid]=tr;
+          state.transCache[pid+'_'+tr]=text;
+        }
+        state.apiPosts.push(p);
+        order.push(p);
+        success++;
+      }
+    }catch{}
+  }
+  persist();
+  apiLoading=false;
+  if(success){
+    toast(`Loaded ${success} new unseen Scripture ${success===1?'passage':'passages'}.`);
+    if($('#journeyPage').classList.contains('active'))stats();
+  }else if(state.apiDone.length>=apiQueue.length){
+    $('#end').textContent='Offline: the curated feed is ready; reconnect to fetch additional passages.';
+  }
+}
+
+$('#showNew').addEventListener('click',()=>{
+  if(!pending.length)return;
+  const p=pending.shift();
+  injectedIds.add(p.id);
+  $('#feed').insertAdjacentHTML('afterbegin',postHTML(p,'inst-'+(++instanceCounter)));
+  observeCards();
+  $('#newbanner').classList.toggle('hidden',!pending.length);
+  if(pending.length)$('#showNew').textContent=`↑ ${pending.length} new saga update${pending.length===1?'':'s'}`;
+  $$(`[data-post="${CSS.escape(p.id)}"]`).at(-1)?.scrollIntoView({behavior:'smooth',block:'start'});
+  persist();
+});
+
+document.addEventListener('click',async e=>{
+  const profEl=e.target.closest('[data-profile]');
+  if(profEl){
+    e.stopPropagation();
+    openProfile(profEl.dataset.profile,'posts');
+    return;
+  }
+  let b=e.target.closest('[data-a]');
+  if(!b)return;
+  if(b.dataset.a==='FilterSaga'){
+    $('#profileModal').classList.remove('open');
+    page('feedPage');
+    mode='Story Mode';
+    state.mode=mode;
+    $$('[data-mode]').forEach(x=>x.classList.toggle('active',x.dataset.mode==='Story Mode'));
+    render(true);
+    setTimeout(()=>{
+      const target=$(`#feed [data-saga="${CSS.escape(b.dataset.saga)}"]`);
+      target?.scrollIntoView({behavior:'smooth',block:'start'});
+    },80);
+    return;
+  }
+  let id=b.dataset.id,p=get(id);if(!p)return;
+  switch(b.dataset.a){
+    case'like':
+      state.likes=state.likes.includes(id)?state.likes.filter(x=>x!==id):[...state.likes,id];
+      persist();updateCards(id);break;
+    case'save':
+      state.saved=state.saved.includes(id)?state.saved.filter(x=>x!==id):[...state.saved,id];
+      persist();updateCards(id);
+      if($('#savedPage').classList.contains('active'))savedPage();
+      toast(state.saved.includes(id)?'Saved for later':'Removed from saved');break;
+    case'translate':
+      await translatePost(p,b);break;
+    case'share':
+      await share(p);break;
+    case'context':
+      await context(p,b.dataset.instance);break;
+    case'comments':
+      state.threadOpen[id]=state.threadOpen[id]===false?true:false;
+      persist();updateCards(id);
+      if(state.threadOpen[id]!==false){
+        const box=b.closest('.post')?.querySelector('.inlineform input');
+        box?.focus();
+      }
+      break;
+    case'react':
+      (state.reactions[id]||={amen:0,selah:0,wisdom:0})[b.dataset.kind]=(state.reactions[id][b.dataset.kind]||0)+1;
+      persist();updateCards(id);break;
+  }
+});
+
+document.addEventListener('submit',e=>{
+  let f=e.target.closest('[data-form]');if(!f)return;
+  e.preventDefault();
+  let id=f.dataset.form,v=f.elements.comment.value.trim();if(!v)return;
+  (state.comments[id]||=[]).push(['You','💬',v,false]);
+  f.elements.comment.value='';
+  persist();
+  updateCommentInstances(id);
+  if(state.characters)characterReply(id);
+  if($('#journeyPage').classList.contains('active'))stats();
+});
+
+$$('[data-mode]').forEach(b=>b.addEventListener('click',()=>{
+  $$('[data-mode]').forEach(x=>x.classList.toggle('active',x===b));
+  mode=b.dataset.mode;state.mode=mode;render(true);
+}));
+$$('[data-page]').forEach(b=>b.addEventListener('click',()=>page(b.dataset.page)));
+$('#shuffle').onclick=()=>{render(true);toast(state.unseenFirst?'Feed refreshed · unseen passages prioritized':'Feed shuffled; connected story parts stay in order')};
+
+function syncSettingsUI(){
+  $('#characters').checked=state.characters!==false;
+  $('#storyFirst').checked=!!state.storyFirst;
+  $('#liveSaga').checked=state.liveSaga!==false;
+  $('#compact').checked=!!state.compact;
+  $('#unseenFirst').checked=state.unseenFirst!==false;
+  $('#defaultTrans').value=state.defaultTrans||'asv';
+}
+syncSettingsUI();
+
+$('#defaultTrans').onchange=e=>{
+  state.defaultTrans=e.target.value;
+  persist();
+  toast(`Default translation set to ${TRANS_LABELS[state.defaultTrans]}`);
+};
+$('#unseenFirst').onchange=e=>{state.unseenFirst=e.target.checked;persist();render(true)};
+$('#characters').onchange=e=>{state.characters=e.target.checked;persist();$$('[data-post]').forEach(el=>updateCards(el.dataset.post))};
+$('#storyFirst').onchange=e=>{state.storyFirst=e.target.checked;persist();render(true)};
+$('#liveSaga').onchange=e=>{state.liveSaga=e.target.checked;persist();if(state.liveSaga)scheduleLive();else clearTimeout(scheduleLive.timer)};
+$('#compact').onchange=e=>{state.compact=e.target.checked;persist();document.body.classList.toggle('compact',state.compact)};
+
+$('#resetSeen').onclick=resetSeenCounter;
+$('#resetSeenSettings').onclick=resetSeenCounter;
+
+$('#export').onclick=()=>{
+  let u=URL.createObjectURL(new Blob([JSON.stringify({exportedAt:new Date().toISOString(),state},null,2)],{type:'application/json'})),a=document.createElement('a');
+  a.href=u;a.download='bible-feed-activity.json';a.click();
+  setTimeout(()=>URL.revokeObjectURL(u),1500);
+};
+$('#importBtn').onclick=()=>$('#importFile').click();
+$('#importFile').onchange=async e=>{
+  const file=e.target.files?.[0];if(!file)return;
+  try{
+    const text=await file.text();
+    const parsed=JSON.parse(text);
+    const incoming=parsed.state||parsed;
+    state={...defaults,...incoming};
+    normalizeState();
+    persist();
+    syncSettingsUI();
+    render(true);
+    stats();
+    toast('Activity restored successfully!');
+  }catch{
+    toast('Invalid JSON backup file.');
+  }
+  e.target.value='';
+};
+
+$('#clear').onclick=()=>{
+  if(!confirm('Clear likes, saved verses, seen history, comments, and settings from this device?'))return;
+  localStorage.removeItem(KEY);
+  try{indexedDB.deleteDatabase('BibleFeedDB')}catch{}
+  location.reload();
+};
+
+if('IntersectionObserver'in window){
+  new IntersectionObserver(es=>{if(es.some(x=>x.isIntersecting)&&$('#feedPage').classList.contains('active'))append()},{rootMargin:'500px'}).observe($('#sentinel'));
+}else{
+  addEventListener('scroll',()=>{if(innerHeight+scrollY>document.body.offsetHeight-500&&$('#feedPage').classList.contains('active'))append()},{passive:true});
+}
+
 for(const p of [...seedAll,...liveCanonical()])if(p.saga&&!state.unlocked[p.saga])state.unlocked[p.saga]=1;
-$('#clock').textContent=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});setInterval(()=>{$('#clock').textContent=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});$$('.timestamp').forEach(el=>{let card=el.closest('[data-post]'),p=card&&get(card.dataset.post);if(p)el.textContent=relTime(p)})},30000);
-document.body.classList.toggle('compact',!!state.compact);render(true);if(state.liveSaga)scheduleLive();
+$('#clock').textContent=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+setInterval(()=>{
+  $('#clock').textContent=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+  $$('.timestamp').forEach(el=>{let card=el.closest('[data-post]'),p=card&&get(card.dataset.post);if(p)el.textContent=relTime(p)});
+},30000);
+document.body.classList.toggle('compact',!!state.compact);
+render(true);
+if(state.liveSaga)scheduleLive();
 })();
 </script>
 <script>
 (() => {
   if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
-    window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(err => console.warn('PWA offline support unavailable:', err)));
+    window.addEventListener('load', async () => {
+      try {
+        const reg = await navigator.serviceWorker.register('./sw.js');
+        reg.update();
+        // Keep both './' and './index.html' synced in cache so PWA home-screen launches never serve stale HTML
+        if (navigator.onLine && 'caches' in window) {
+          const res = await fetch(location.href, { cache: 'no-store' });
+          if (res.ok) {
+            const keys = await caches.keys();
+            for (const k of keys.filter(k => k.startsWith('bible-feed-pwa-'))) {
+              const c = await caches.open(k);
+              await c.put('./', res.clone());
+              await c.put('./index.html', res.clone());
+            }
+          }
+        }
+      } catch (err) {
+        console.warn('PWA offline support unavailable:', err);
+      }
+    });
   }
   const installBtn = document.getElementById('installApp');
   if (!installBtn) return;
